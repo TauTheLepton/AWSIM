@@ -1,0 +1,2311 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../Vehicle/">
+      
+      
+        <link rel="next" href="../NPCs/">
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
+    
+    
+      
+        <title>Sensors - AWSIM document</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.ded33207.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.a0c5b2b5.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#lidar-sensor" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="AWSIM document" class="md-header__button md-logo" aria-label="AWSIM document" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWSIM document
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Sensors
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/tier4/AWSIM" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="AWSIM document" class="md-nav__button md-logo" aria-label="AWSIM document" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AWSIM document
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/tier4/AWSIM" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+          Introduction
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1">
+          <span class="md-nav__icon md-icon"></span>
+          Introduction
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introduction/AWSIM/" class="md-nav__link">
+        AWSIM
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introduction/Autoware/" class="md-nav__link">
+        Autoware
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+          AWSIM & Autoware
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_3">
+          <span class="md-nav__icon md-icon"></span>
+          AWSIM & Autoware
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introduction/AWSIM%26Autoware/" class="md-nav__link">
+        AWSIM & Autoware
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introduction/AWSIM%26Autoware/Features/" class="md-nav__link">
+        Features
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+          AWSIM & Autoware & Scenario simulator v2
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_1_4">
+          <span class="md-nav__icon md-icon"></span>
+          AWSIM & Autoware & Scenario simulator v2
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introduction/AWSIM%26Autoware%26ScenarioSimulatorV2/" class="md-nav__link">
+        AWSIM & Autoware & Scenario simulator v2
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Introduction/AWSIM%26Autoware%26ScenarioSimulatorV2/Features/" class="md-nav__link">
+        Features
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          User guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          User guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+          Installation
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Installation
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Prerequisites/" class="md-nav__link">
+        Prerequisites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/AWSIMDemo/" class="md-nav__link">
+        AWSIM Demo
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Installation/Troubleshooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+          First steps
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_2">
+          <span class="md-nav__icon md-icon"></span>
+          First steps
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FirstSteps/SetTheInitializationPosition/" class="md-nav__link">
+        Set the initialization position
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FirstSteps/SetASingleGoal/" class="md-nav__link">
+        Set a single goal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FirstSteps/AddCheckpointsOnTheWayToTheGoal/" class="md-nav__link">
+        Add checkpoints on the way to the goal
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../FirstSteps/EnableSelf-driving/" class="md-nav__link">
+        Enable self-driving
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+          Build from source
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_3">
+          <span class="md-nav__icon md-icon"></span>
+          Build from source
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BuildFromSource/Prerequisites/" class="md-nav__link">
+        Prerequisites
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BuildFromSource/UnityInstallation/" class="md-nav__link">
+        Unity installation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BuildFromSource/SetupUnityProject/" class="md-nav__link">
+        Setup Unity Project
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../BuildFromSource/RunAWSIMScene/" class="md-nav__link">
+        Run AWSIM scene
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+          Project guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_2_4">
+          <span class="md-nav__icon md-icon"></span>
+          Project guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ProjectGuide/" class="md-nav__link">
+        Project guide
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ProjectGuide/DefaultExistingScenes/" class="md-nav__link">
+        Default existing scenes
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ProjectGuide/DirectoryStructure/" class="md-nav__link">
+        Directory structure
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ProjectGuide/ExternalLibraries/" class="md-nav__link">
+        External Libraries
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" checked>
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+          Components
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="true">
+        <label class="md-nav__title" for="__nav_2_5">
+          <span class="md-nav__icon md-icon"></span>
+          Components
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Environment/" class="md-nav__link">
+        Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../RandomTrafficSimulator/" class="md-nav__link">
+        Random Traffic Simulator
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Vehicle/" class="md-nav__link">
+        Vehicle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Sensors
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Sensors
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lidar-sensor" class="md-nav__link">
+    Lidar Sensor
+  </a>
+  
+    <nav class="md-nav" aria-label="Lidar Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ros2-configuration" class="md-nav__link">
+    ROS2 configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="ROS2 configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#published-topics" class="md-nav__link">
+    Published Topics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-data" class="md-nav__link">
+    Output Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimal-scene-example" class="md-nav__link">
+    Minimal scene example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rglscenemanager" class="md-nav__link">
+    RGLSceneManager
+  </a>
+  
+    <nav class="md-nav" aria-label="RGLSceneManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-instruction" class="md-nav__link">
+    Setup instruction
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lidar-models" class="md-nav__link">
+    Lidar models
+  </a>
+  
+    <nav class="md-nav" aria-label="Lidar models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-lidar-models" class="md-nav__link">
+    Adding new lidar models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-lidar-gameobject" class="md-nav__link">
+    Creating Lidar GameObject
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Lidar GameObject">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefabs" class="md-nav__link">
+    Prefabs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-requirements" class="md-nav__link">
+    Usage requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rgl-unity-side-scripts" class="md-nav__link">
+    RGL Unity side scripts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imu-sensor" class="md-nav__link">
+    IMU Sensor
+  </a>
+  
+    <nav class="md-nav" aria-label="IMU Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefabs_1" class="md-nav__link">
+    Prefabs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    Scripts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-data_1" class="md-nav__link">
+    Output Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#published-topics_1" class="md-nav__link">
+    Published Topics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gnss-sensor" class="md-nav__link">
+    GNSS Sensor
+  </a>
+  
+    <nav class="md-nav" aria-label="GNSS Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefabs_2" class="md-nav__link">
+    Prefabs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripts_1" class="md-nav__link">
+    Scripts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-data_2" class="md-nav__link">
+    Output Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#published-topics_2" class="md-nav__link">
+    Published Topics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-sensor" class="md-nav__link">
+    Camera Sensor
+  </a>
+  
+    <nav class="md-nav" aria-label="Camera Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefabs_3" class="md-nav__link">
+    Prefabs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripts_2" class="md-nav__link">
+    Scripts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-data_3" class="md-nav__link">
+    Output Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#published-topics_3" class="md-nav__link">
+    Published Topics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../NPCs/" class="md-nav__link">
+        NPCs
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+      
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          Developer Guide
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          Developer Guide
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          Tutorials
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_1">
+          <span class="md-nav__icon md-icon"></span>
+          Tutorials
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/Tutorials/AddANewEnvironment/" class="md-nav__link">
+        Add a new Environment
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/Tutorials/AddANewScene/" class="md-nav__link">
+        Add a new Scene
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/Tutorials/AddASceneManagerToScene/" class="md-nav__link">
+        Add a SceneManager to scene
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/Tutorials/AddARandomTrafficToScene/" class="md-nav__link">
+        Add a RandomTraffic to scene
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/Tutorials/AddANewVehicle/" class="md-nav__link">
+        Add a new Vehicle
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/Tutorials/AddANewLiDARModel/" class="md-nav__link">
+        Add a new LiDAR model
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/API/" class="md-nav__link">
+        API
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+      
+      
+      <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+          Contributing
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <label class="md-nav__title" for="__nav_3_3">
+          <span class="md-nav__icon md-icon"></span>
+          Contributing
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/Contributing/GitBranch/" class="md-nav__link">
+        Git Branch
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/Contributing/HowToContribute/" class="md-nav__link">
+        How to Contribute
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/DocumentationGeneration/" class="md-nav__link">
+        Documentation generation
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/TroubleShooting/" class="md-nav__link">
+        Trouble shooting
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../License/" class="md-nav__link">
+        License
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../Contact/" class="md-nav__link">
+        Contact
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lidar-sensor" class="md-nav__link">
+    Lidar Sensor
+  </a>
+  
+    <nav class="md-nav" aria-label="Lidar Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ros2-configuration" class="md-nav__link">
+    ROS2 configuration
+  </a>
+  
+    <nav class="md-nav" aria-label="ROS2 configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#published-topics" class="md-nav__link">
+    Published Topics
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-data" class="md-nav__link">
+    Output Data
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#minimal-scene-example" class="md-nav__link">
+    Minimal scene example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rglscenemanager" class="md-nav__link">
+    RGLSceneManager
+  </a>
+  
+    <nav class="md-nav" aria-label="RGLSceneManager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setup-instruction" class="md-nav__link">
+    Setup instruction
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#lidar-models" class="md-nav__link">
+    Lidar models
+  </a>
+  
+    <nav class="md-nav" aria-label="Lidar models">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#adding-new-lidar-models" class="md-nav__link">
+    Adding new lidar models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-lidar-gameobject" class="md-nav__link">
+    Creating Lidar GameObject
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating Lidar GameObject">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefabs" class="md-nav__link">
+    Prefabs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#usage-requirements" class="md-nav__link">
+    Usage requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rgl-unity-side-scripts" class="md-nav__link">
+    RGL Unity side scripts
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imu-sensor" class="md-nav__link">
+    IMU Sensor
+  </a>
+  
+    <nav class="md-nav" aria-label="IMU Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefabs_1" class="md-nav__link">
+    Prefabs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripts" class="md-nav__link">
+    Scripts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-data_1" class="md-nav__link">
+    Output Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#published-topics_1" class="md-nav__link">
+    Published Topics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gnss-sensor" class="md-nav__link">
+    GNSS Sensor
+  </a>
+  
+    <nav class="md-nav" aria-label="GNSS Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefabs_2" class="md-nav__link">
+    Prefabs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripts_1" class="md-nav__link">
+    Scripts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-data_2" class="md-nav__link">
+    Output Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#published-topics_2" class="md-nav__link">
+    Published Topics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#camera-sensor" class="md-nav__link">
+    Camera Sensor
+  </a>
+  
+    <nav class="md-nav" aria-label="Camera Sensor">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prefabs_3" class="md-nav__link">
+    Prefabs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scripts_2" class="md-nav__link">
+    Scripts
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#output-data_3" class="md-nav__link">
+    Output Data
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#published-topics_3" class="md-nav__link">
+    Published Topics
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+  <h1>Sensors</h1>
+
+<p><strong>VehicleStatusSensor</strong></p>
+<!-- TODO everything about this sensor -->
+
+<p>(prefab location, purpose of existence, link, <strong>screen</strong>)</p>
+<ul>
+<li>Vehicle Report Ros Publisher Script (inputs, outputs, topics, frame_id, qos)</li>
+</ul>
+<p><strong>RobotecGPULidars [70% current]</strong></p>
+<!-- TODO copied old, needs to be adjusted (70%) -->
+
+<p>(prefab location, purpose of existence, RGL repository - hyperlink)</p>
+<ul>
+<li>Note: to use RobotecGPULidar, the scene must have Scene Manager Script (hyperlink)</li>
+<li>Lidar Sensor Script<ul>
+<li>Available models (prefabs location, description of differences)</li>
+<li>Parameters (min/max h angle, max range, horizontal steps)</li>
+<li>Noise (type and params)</li>
+<li>Laser array configuration</li>
+<li>Output (Pcl24 vs Pcl48)</li>
+</ul>
+</li>
+<li>Rgl Lidar Ros Publisher Script (topics, frame_id, qos)</li>
+<li>Point Cloud Visualization Script (points, colors, limits)</li>
+</ul>
+<h2 id="lidar-sensor">Lidar Sensor</h2>
+<p>AWSIM uses Robotec GPU Lidar, which is a cross-platform (Windows and Linux), RTX-accelerated, CUDA/C++ library developed by <a href="https://robotec.ai/">Robotec.AI</a>. For more information about RGL library, visit <a href="https://github.com/RobotecAI/RobotecGPULidar">its repository</a>.</p>
+<p>AWSIM is integrated with RGL out-of-the-box - using RGLUnityPlugin Asset.</p>
+<h3 id="ros2-configuration">ROS2 configuration</h3>
+<p>The following sections describe RGL configuration in AWSIM.</p>
+<h4 id="published-topics">Published Topics</h4>
+<p>The table below shows topics published by <code>RglLidarPublisher</code> script.</p>
+<table>
+<thead>
+<tr>
+<th align="left">topic</th>
+<th align="left">msg</th>
+<th align="left">frame_id</th>
+<th align="left">hz</th>
+<th align="left">QoS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>/lidar/pointcloud</code></td>
+<td align="left"><code>sensor_msgs/PointCloud2</code></td>
+<td align="left"><code>world</code></td>
+<td align="left"><code>10</code></td>
+<td align="left"><code>Reliable</code>, <code>Volatile</code>, <code>Keep last/1</code></td>
+</tr>
+<tr>
+<td align="left"><code>/lidar/pointcloud_ex</code></td>
+<td align="left"><code>sensor_msgs/PointCloud2</code></td>
+<td align="left"><code>world</code></td>
+<td align="left"><code>10</code></td>
+<td align="left"><code>Reliable</code>, <code>Volatile</code>, <code>Keep last/1</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="output-data">Output Data</h4>
+<p>The following table describes <code>LidarSensor.OutputData</code> struct used in Unity:</p>
+<table>
+<thead>
+<tr>
+<th align="left">field</th>
+<th align="left">type</th>
+<th align="left">feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">hitCount</td>
+<td align="left">int</td>
+<td align="left">Number of rays that hit any object</td>
+</tr>
+<tr>
+<td align="left">hits</td>
+<td align="left">Vector3 [ ]</td>
+<td align="left">Vertices for visualization in Unity's coordinate system</td>
+</tr>
+<tr>
+<td align="left">rosPCL24</td>
+<td align="left">byte [ ]</td>
+<td align="left">Vertices for publishing Autoware format pointcloud in ROS coordinate system</td>
+</tr>
+<tr>
+<td align="left">rosPCL48</td>
+<td align="left">byte [ ]</td>
+<td align="left">Vertices for publishing extended Autoware format pointcloud in ROS coordinate system</td>
+</tr>
+</tbody>
+</table>
+<h3 id="minimal-scene-example">Minimal scene example</h3>
+<p>The scene <code>Assets/AWSIM/Scenes/Samples/LidarSceneDevelop.unity</code> can be used as a complete, minimalistic example of how to setup RGL. It contains <code>RGLSceneManager</code> component, four lidars, and an environment composed of floor and walls.</p>
+<p><img src="img/LidarSceneDevelop.png" width="700"></p>
+<h3 id="rglscenemanager">RGLSceneManager</h3>
+<p>Each scene needs <code>RGLSceneManager</code> component to synchronize models between Unity and RGL. On every frame, it detects changes in the Unity's scene  and propagates the changes to native RGL code. Three different strategies to interact with in-simulation 3D models are implemented. <code>RGLSceneManager</code> uses executes one of the following policies to obtain raycast hit:</p>
+<ul>
+<li><code>Only Colliders</code> - active colliders only,</li>
+<li><code>Regular Meshes And Colliders Instead Of Skinned</code> - mesh for non-skinned MeshRenderers or set of colliders (if provided) attached to the rootBone and below for SkinnedMeshRenderers,</li>
+<li><code>RegularMeshesAndSkinnedMeshes</code> - mesh for both MeshRenderer and SkinnedMeshRenderer.</li>
+</ul>
+<p>Mesh source can be changed in the Scene Manager (Script) properties:</p>
+<p><img src="img/RGLSceneManagerModes.png" width="300"></p>
+<p><em>Note: RGLSceneManager performance depends on mesh source option selected.</em></p>
+<h4 id="setup-instruction">Setup instruction</h4>
+<p>To configure RGL for new scenes, please:</p>
+<ol>
+<li>Create an empty object (name it RGLSceneManager).</li>
+<li>Attach script <code>SceneManager.cs</code> to the RGLSceneManager object.</li>
+</ol>
+<h3 id="lidar-models">Lidar models</h3>
+<p>Lidar prefabs typically consist of three scripts:</p>
+<ul>
+<li><code>LidarSensor</code> - provides lidar configuration and performs native RGL raytrace calls</li>
+<li><code>PointCloudVisualization</code> - visualizes point cloud collected by sensor</li>
+<li><code>RglLidarPublisher</code> - converts the data output from LidarSensor to ROS2 msg and publishes it</li>
+</ul>
+<p>To use one of the prepared prefab lidars, drag the prefab file and drop it into a scene:</p>
+<p><img src="img/AddPrefabLidar.png" width="700"></p>
+<p>A lidar GameObject should be instantiated automatically:</p>
+<p><img src="img/PrefabLidarObject.png" width="700"></p>
+<p>Next, you can modify scripts parameters in Unity Inspector:</p>
+<p>In <code>LidarSensor</code> script, the following configuration can be changed:</p>
+<ul>
+<li><code>Automatic Capture Hz</code> - the rate of sensor processing</li>
+<li><code>Model Preset</code> - allows selecting one of the built-in LiDAR models</li>
+<li><code>Apply Gaussian Noise</code> - enable/disable gaussian noise</li>
+<li><code>Configuration</code> - advanced lidar configuration (in most cases no need to change)<ul>
+<li><code>Laser Array</code> - geometry description of lidar array</li>
+<li><code>Horizontal Steps</code> - the number of laser array firings between <code>Min H Angle</code> and <code>Max H Angle</code></li>
+<li><code>Min H Angle</code> - minimum horizontal angle (left)</li>
+<li><code>Max H Angle</code> - maximum horizontal angle (right)</li>
+<li><code>Max Range</code> - maximum range of the sensor</li>
+<li><code>Noise Params</code> - lidar noise paramteres</li>
+</ul>
+</li>
+</ul>
+<p><img src="img/LidarSensorProp.png" width="500"></p>
+<p>In the script <code>Point Cloud Visualization</code> the material of points can be changed. If material is <code>None</code> then <code>PointCloudMaterial</code> from <code>Assets/RGLUnityPlugin/Resources</code> will be automatically loaded. You can disable visualization by deactivating the component.</p>
+<p><img src="img/VisualizationProp.png" width="500"></p>
+<p><code>Point Cloud Visualization</code> preview:</p>
+<p><img src="img/LidarVisualizationOnScene.png" width="700"></p>
+<p>In the last script - <code>RglLidarPublisher</code> - ROS properties such as topics names, frame IDs, publish activation or QoS settings can be modified:</p>
+<p><img src="img/PublisherProp.png" width="500"></p>
+<h4 id="adding-new-lidar-models">Adding new lidar models</h4>
+<p>To add a new lidar model, perform the following steps:</p>
+<ol>
+<li>Add its name to the <code>LidarModels.cs</code></li>
+<li>If the Lidar has a non-uniform laser array construction (e.g. different linear/angular spacing between lasers), add an entry to the <code>LaserArrayLibrary</code>.</li>
+<li>Add an entry to <code>LidarConfigurationLibrary</code>. Use the provided laser array or generate a uniform one using static method <code>LaserArray.Uniform()</code>.</li>
+<li>Done. New lidar preset should be available via Unity Inspector.</li>
+</ol>
+<h4 id="creating-lidar-gameobject">Creating Lidar GameObject</h4>
+<p>To create GameObject (or prefab) containing lidar sensor, please perform the following steps:</p>
+<ol>
+<li>Create an empty object</li>
+<li>Attach script <code>LidarSensor.cs</code>.</li>
+<li><code>PointCloudVisualization.cs</code> will be added automatically, however, you can disable it.</li>
+<li>Now you can add a callback from another script to receive a notification when data is ready:
+   <div class="highlight"><pre><span></span><code><span class="n">lidarSensor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">GetComponent</span><span class="o">&lt;</span><span class="n">LidarSensor</span><span class="o">&gt;</span><span class="p">();</span>
+<span class="n">lidarSensor</span><span class="p">.</span><span class="n">OnOutputData</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="n">HandleLidarDataMethod</span><span class="p">;</span>
+</code></pre></div></li>
+<li>For publishing point cloud via ROS2 attach script <code>RglLidarPublisher.cs</code></li>
+</ol>
+<h5 id="prefabs">Prefabs</h5>
+<p>The list of available prefabs can be found below.</p>
+<table>
+<thead>
+<tr>
+<th align="left">LiDAR</th>
+<th align="left">Path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">HESAI Pandar40P</td>
+<td align="left"><code>Assets/AWSIM/Prefabs/Sensors/RobotecGPULidars/HesaiPandar40P.prefab</code></td>
+</tr>
+<tr>
+<td align="left">HESAI PandarQT64</td>
+<td align="left"><code>Assets/AWSIM/Prefabs/Sensors/RobotecGPULidars/HesaiPandarQT64.prefab</code></td>
+</tr>
+<tr>
+<td align="left">Ouster OS1-64</td>
+<td align="left"><code>Assets/AWSIM/Prefabs/Sensors/RobotecGPULidars/OusterOS1-64.prefab</code></td>
+</tr>
+<tr>
+<td align="left">Velodyne VLP-16</td>
+<td align="left"><code>Assets/AWSIM/Prefabs/Sensors/RobotecGPULidars/VelodyneVLP16.prefab</code></td>
+</tr>
+<tr>
+<td align="left">Velodyne VLC-32C</td>
+<td align="left"><code>Assets/AWSIM/Prefabs/Sensors/RobotecGPULidars/VelodyneVLP32C.prefab</code></td>
+</tr>
+<tr>
+<td align="left">Velodyne VLS-128-AP</td>
+<td align="left"><code>Assets/AWSIM/Prefabs/Sensors/RobotecGPULidars/VelodyneVLS128.prefab</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="usage-requirements">Usage requirements</h3>
+<p>Objects, to be detectable by Robotec GPU lidar, must fulfill the following requirements:</p>
+<ol>
+<li>Contain one of the components: <code>Collider</code>, <code>Mesh Renderer</code>, or <code>Skinned Mesh Renderer</code>. It depends on RGLSceneManager mesh source parameter.</li>
+<li>Be readable from CPU-accessible memory. It can be achieved using the “Read/Write Enabled” checkbox in mesh settings. <em>Note: Primitive Objects are readable by default.</em></li>
+</ol>
+<p><img src="img/ReadableMeshSetting.png" width="400"></p>
+<h3 id="rgl-unity-side-scripts">RGL Unity side scripts</h3>
+<p>The following table describes the most essential lidar simulation scripts:</p>
+<table>
+<thead>
+<tr>
+<th align="left">script</th>
+<th align="left">feature</th>
+<th align="left">path</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">SceneManager.cs</td>
+<td align="left">Synchronize the scene between Unity and RGL.</td>
+<td align="left"><code>Assets/RGLUnityPlugin/Scripts/SceneManager.cs</code></td>
+</tr>
+<tr>
+<td align="left">LidarSensor.cs</td>
+<td align="left">Lidar Sensor. Provide lidar configuration and collect point cloud.</td>
+<td align="left"><code>Assets/RGLUnityPlugin/Scripts/LidarSensor.cs</code></td>
+</tr>
+<tr>
+<td align="left">PointCloudVisualization.cs</td>
+<td align="left">Visualize point cloud collected by lidar.</td>
+<td align="left"><code>Assets/RGLUnityPlugin/Scripts/PointCloudVisualization.cs</code></td>
+</tr>
+<tr>
+<td align="left">RglLidarPublisher.cs</td>
+<td align="left">Convert the data output from LidarSensor to ROS2 msg and publish.</td>
+<td align="left"><code>Assets/AWSIM/Scripts/Sensors/LiDAR/RglLidarPublisher.cs</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>IMUSensor [50% current]</strong></p>
+<!-- TODO copied old, needs to be adjusted (50%) -->
+
+<p>(prefab location, purpose of existence, link, <strong>screen</strong>)</p>
+<ul>
+<li>Imu Sensor Script (gravity, output)</li>
+<li>Imu Ros Publisher Script (topics, frame_id, qos)</li>
+</ul>
+<h2 id="imu-sensor">IMU Sensor</h2>
+<p>The document describes inertial measurement unit sensor simulation component.</p>
+<h3 id="prefabs_1">Prefabs</h3>
+<p>Path : <code>Assets\AWSIM\Prefabs\Sensors\IMUSensor.prefab</code></p>
+<h3 id="scripts">Scripts</h3>
+<p>All the most important scripts can be found under the <code>Assets\AWSIM\Scripts\Sensors\Imu\*</code></p>
+<p>The table below describes features contained in each provided script:</p>
+<table>
+<thead>
+<tr>
+<th align="left">script</th>
+<th align="left">feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ImuSensor.cs</td>
+<td align="left">Core Inertial Measurement Unit Sensor.<br>Measures the Acceleration(m/s^2) and AngularVelocity(rad/s) based on the Transform of the GameObject to which this component is attached to.</td>
+</tr>
+<tr>
+<td align="left">ImuRos2Publisher.cs</td>
+<td align="left">Converts the data output from ImuSensor-specific struct to ROS2 message and publishes it.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="output-data_1">Output Data</h3>
+<p>The following table describes <code>ImuSensor.OutputData</code> properties:</p>
+<table>
+<thead>
+<tr>
+<th align="left">field</th>
+<th align="left">type</th>
+<th align="left">feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">LinearAcceleration</td>
+<td align="left">Vector3</td>
+<td align="left">Measured acceleration (m/s^2)</td>
+</tr>
+<tr>
+<td align="left">AungularVelocity</td>
+<td align="left">Vector3</td>
+<td align="left">Measured angular velocity (rad/s)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="published-topics_1">Published Topics</h3>
+<p>The data output is published to the following topics:</p>
+<table>
+<thead>
+<tr>
+<th align="left">topic</th>
+<th align="left">msg</th>
+<th align="left">frame_id</th>
+<th align="left">hz</th>
+<th align="left">QoS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>/sensing/imu/tamagawa/imu_raw</code></td>
+<td align="left"><code>sensor_msgs/Imu</code></td>
+<td align="left"><code>tamagawa/imu_link</code></td>
+<td align="left"><code>30</code></td>
+<td align="left"><code>Reliable</code>, <code>Volatile</code>, <code>Keep last/1000</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>GnssSensor [50% current]</strong></p>
+<!-- TODO copied old, needs to be adjusted (50%) -->
+
+<p>(prefab location, purpose of existence, link, <strong>screen</strong>)</p>
+<ul>
+<li>Gnss Sensor Script (MGRS, output)</li>
+<li>Gnss Ros Publisher Script (topics, frame_id, qos)</li>
+</ul>
+<h2 id="gnss-sensor">GNSS Sensor</h2>
+<p>GNSS senor is a component which simulates the position of vehicle computed by the Global Navigation Satellite System. The GNSS sensor outputs the position in the MGRS coordinate system.</p>
+<h3 id="prefabs_2">Prefabs</h3>
+<p>The component prefab can be found under the following path: <code>Assets\AWSIM\Prefabs\Sensors\GnssSensor.prefab</code></p>
+<h3 id="scripts_1">Scripts</h3>
+<p>All the most important scripts can be found under the <code>`Assets\AWSIM\Prefabs\Sensors\Gnss\*</code> path.</p>
+<p>The table below describes features contained in each provided script:</p>
+<table>
+<thead>
+<tr>
+<th align="left">script</th>
+<th align="left">feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">GnssSensor.cs</td>
+<td align="left">Core GNSS sensor. Publishes pose and poseWithCovarianceStamped in MGRS coordinate system. Requires MgrsReference of the Environment for the output data conversion.</td>
+</tr>
+<tr>
+<td align="left">GnssRos2Publisher.cs</td>
+<td align="left">Converts the data output from GnssSensor to ROS2 message and publishes it.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="output-data_2">Output Data</h3>
+<p>The following table describes <code>GnssSensor.OutputData</code> properties:</p>
+<table>
+<thead>
+<tr>
+<th align="left">field</th>
+<th align="left">type</th>
+<th align="left">feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">MgrsPosition</td>
+<td align="left">Vector3</td>
+<td align="left">Position in the MGRS coordinate system.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="published-topics_2">Published Topics</h3>
+<p>The data output is published to the following topics:</p>
+<table>
+<thead>
+<tr>
+<th align="left">topic</th>
+<th align="left">msg</th>
+<th align="left">frame_id</th>
+<th align="left">hz</th>
+<th align="left">QoS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>/sensing/gnss/pose</code></td>
+<td align="left"><code>geometry_msgs/Pose</code></td>
+<td align="left"><code>gnss_link</code></td>
+<td align="left"><code>1</code></td>
+<td align="left"><code>Reliable</code>, <code>Volatile</code>, <code>Keep last/1</code></td>
+</tr>
+<tr>
+<td align="left"><code>/sensing/gnss/pose_with_covariance</code></td>
+<td align="left"><code>geometry_msgs/PoseWithCovarianceStamped</code></td>
+<td align="left"><code>gnss_link</code></td>
+<td align="left"><code>1</code></td>
+<td align="left"><code>Reliable</code>, <code>Volatile</code>, <code>Keep last/1</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>CameraSensor [10% current]</strong></p>
+<!-- TODO copied old, needs to be adjusted a lot (10%) -->
+
+<p>(prefab location, purpose of existence, link, <strong>screen</strong>)</p>
+<ul>
+<li>Camera component (https://docs.unity3d.com/Manual/class-Camera.html)</li>
+<li>Camera Sensor Script (parameters, output, gui - <strong>screen</strong>)<ul>
+<li>Distortion shader (what is it and where is it located)</li>
+<li>ROS image shader (what is it and where is it located)</li>
+</ul>
+</li>
+<li>Camera Ros Publisher Script (topics, frame_id, qos)</li>
+<li>Impact on the traffic lights recognition in autoware</li>
+</ul>
+<h2 id="camera-sensor">Camera Sensor</h2>
+<p>The following document describes Unity component used for camera simulation. The <code>CameraSensor</code> component is used for Autoware traffic light recognition.</p>
+<h3 id="prefabs_3">Prefabs</h3>
+<p>The component prefab can be found under the following path: <code>Assets\AWSIM\Prefabs\Sensors\CameraSensor.prefab</code></p>
+<h3 id="scripts_2">Scripts</h3>
+<p>All the most important scripts can be found under the <code>Assets\AWSIM\Prefabs\Sensors\CameraSensor\*</code> path.</p>
+<p>The table below describes features contained in each provided script:</p>
+<table>
+<thead>
+<tr>
+<th align="left">script</th>
+<th align="left">feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">CameraSensor.cs</td>
+<td align="left">Core camera sensor component. It is responsible for applying OpenCV distortion and encoding to bgr8 format. Uses <code>ComputeShader</code>.</td>
+</tr>
+<tr>
+<td align="left">CameraRos2Publisher.cs</td>
+<td align="left">Converts the data output from CameraSensor to ROS2 message and publishes it.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="output-data_3">Output Data</h3>
+<p>The sensor computation output format is presented below:</p>
+<table>
+<thead>
+<tr>
+<th align="left">field</th>
+<th align="left">type</th>
+<th align="left">feature</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">ImageDataBuffer</td>
+<td align="left">byte[ ]</td>
+<td align="left">Buffer with image data.</td>
+</tr>
+<tr>
+<td align="left">CameraParameters</td>
+<td align="left">CameraParameters</td>
+<td align="left">Set of the camera parameters.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="published-topics_3">Published Topics</h3>
+<p>The data output is published to the following topics:</p>
+<table>
+<thead>
+<tr>
+<th align="left">topic</th>
+<th align="left">msg</th>
+<th align="left">frame_id</th>
+<th align="left">hz</th>
+<th align="left">QoS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>/sensing/camera/traffic_light/camera_info</code></td>
+<td align="left"><code>sensor_msgs/CameraInfo</code></td>
+<td align="left"><code>traffic_light_left_camera/camera_link</code></td>
+<td align="left"><code>10</code></td>
+<td align="left"><code>Best effort</code>, <code>Volatile</code>, <code>Keep last/1</code></td>
+</tr>
+<tr>
+<td align="left"><code>/sensing/camera/traffic_light/image_raw</code></td>
+<td align="left"><code>sensor_msgs/Image</code></td>
+<td align="left"><code>traffic_light_left_camera/camera_link</code></td>
+<td align="left"><code>10</code></td>
+<td align="left"><code>Best effort</code>, <code>Volatile</code>, <code>Keep last/1</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../Vehicle/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Vehicle" rel="prev">
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Vehicle
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../NPCs/" class="md-footer__link md-footer__link--next" aria-label="Next: NPCs" rel="next">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                NPCs
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.sections", "navigation.footer", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.51198bba.min.js"></script>
+      
+    
+  </body>
+</html>
