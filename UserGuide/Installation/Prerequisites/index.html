@@ -1489,9 +1489,16 @@ To apply required localhost settings please add the following lines to <code>~/.
 </code></pre></div>
 <p>If you are having trouble with network connection consider replacing <code>export ROS_LOCALHOST_ONLY=1</code> with <code>export ROS_DOMAIN_ID=XX</code> where <code>XX</code> is a unique number in your network between 0 and 101 inclusive.
 For more information about <code>ROS_DOMAIN_ID</code> head to official <a href="https://docs.ros.org/en/rolling/Concepts/About-Domain-ID.html">documentation</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Adding these lines to your <code>.bashrc</code> file will require you to supply your password first time you open a terminal after each PC restart.</p>
+</div>
 <h3 id="install-git">Install Git</h3>
-<!-- TODO -->
-
+<p>To download AWSIM from a <a href="https://github.com/tier4/AWSIM">remote repository</a> you need to install <a href="https://git-scm.com/">git</a>.
+To do that paste the commands below into terminal.</p>
+<div class="highlight"><pre><span></span><code>sudo apt-get -y update
+sudo apt-get -y install git
+</code></pre></div>
 <h3 id="install-nvidia-gpu-driver">Install Nvidia GPU driver</h3>
 <p>On Ubuntu you can open <code>Additional Drivers</code> application and from there select one driver and install it.
 <img alt="additional drivers" src="gpu_drivers.png" /></p>
@@ -1507,7 +1514,7 @@ sudo apt update
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>After installing drivers restart your pc.</p>
+<p>After installing drivers PC reboot is required.</p>
 </div>
 <p>To check whether the drivers are working correctly run <code>nvidia-smi</code> command in terminal and check whether you get a result similar to the one below.</p>
 <p><img alt="nvidia-smi" src="nvidia_check.gif" /></p>
@@ -1565,17 +1572,6 @@ rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO
 <li>Build the workspace.
 <div class="highlight"><pre><span></span><code>colcon build --symlink-install --cmake-args -DCMAKE_BUILD_TYPE=Release -DCMAKE_CXX_FLAGS=&quot;-w&quot;
 </code></pre></div></li>
-<li>
-<p>Launch Autoware.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p><code>&lt;your mapfile location&gt;</code> must be changed arbitrarily. When specifying the path the <code>~</code> operator cannot be used - please specify absolute full path.</p>
-</div>
-<p><div class="highlight"><pre><span></span><code>source install/setup.bash
-ros2 launch autoware_launch e2e_simulator.launch.xml vehicle_model:=sample_vehicle sensor_model:=awsim_sensor_kit map_path:=&lt;your mapfile location&gt;
-</code></pre></div>
-<img alt="" src="Image_2.png" /></p>
-</li>
 </ol>
 
 

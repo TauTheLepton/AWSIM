@@ -512,22 +512,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-the-demo" class="md-nav__link">
-    Start the demo
-  </a>
-  
-    <nav class="md-nav" aria-label="Start the demo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#running-the-awsim-simulation-demo" class="md-nav__link">
-    Running the AWSIM simulation demo
+  <a href="#download-and-run" class="md-nav__link">
+    Download and run
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#run-with-autoware-gifsvideo" class="md-nav__link">
+    Run with Autoware (gifs/video)
+  </a>
   
 </li>
       
@@ -1262,22 +1256,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start-the-demo" class="md-nav__link">
-    Start the demo
-  </a>
-  
-    <nav class="md-nav" aria-label="Start the demo">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#running-the-awsim-simulation-demo" class="md-nav__link">
-    Running the AWSIM simulation demo
+  <a href="#download-and-run" class="md-nav__link">
+    Download and run
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#run-with-autoware-gifsvideo" class="md-nav__link">
+    Run with Autoware (gifs/video)
+  </a>
   
 </li>
       
@@ -1334,69 +1322,16 @@
 </tr>
 </tbody>
 </table>
-<ul>
-<li>Download and run [60% current] (<strong>gifs</strong>)</li>
-</ul>
+<h2 id="download-and-run">Download and run</h2>
 <!-- TODO only copied from old -->
-<h2 id="start-the-demo">Start the demo</h2>
-<h3 id="running-the-awsim-simulation-demo">Running the AWSIM simulation demo</h3>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before following through with this section make sure to check <a href="/UserGuide/Installation/Prerequisites">prerequisites</a>.</p>
+</div>
 <p>To run the simulator, please follow the steps below.</p>
 <ol>
 <li>
-<p>Install Nvidia GPU driver (Skip if already installed).</p>
-<ol>
-<li>Add Nvidia driver to apt repository
-<div class="highlight"><pre><span></span><code>sudo add-apt-repository ppa:graphics-drivers/ppa
-sudo apt update
-</code></pre></div></li>
-<li>Install the recommended version of the driver.
-<div class="highlight"><pre><span></span><code>sudo ubuntu-drivers autoinstall
-</code></pre></div></li>
-<li>Reboot your machine to make the installed driver detected by the system.
-<div class="highlight"><pre><span></span><code>sudo reboot
-</code></pre></div></li>
-<li>Open terminal and check if <code>nvidia-smi</code> command is available and outputs summary similar to the one presented below.
-<div class="highlight"><pre><span></span><code>$ nvidia-smi 
-Fri Oct 14 01:41:05 2022       
-+-----------------------------------------------------------------------------+
-| NVIDIA-SMI 515.65.01    Driver Version: 515.65.01    CUDA Version: 11.7     |
-|-------------------------------+----------------------+----------------------+
-| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
-| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
-|                               |                      |               MIG M. |
-|===============================+======================+======================|
-|   0  NVIDIA GeForce ...  Off  | 00000000:01:00.0  On |                  N/A |
-| 37%   31C    P8    30W / 250W |    188MiB / 11264MiB |      3%      Default |
-|                               |                      |                  N/A |
-+-------------------------------+----------------------+----------------------+
-
-+-----------------------------------------------------------------------------+
-| Processes:                                                                  |
-|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
-|        ID   ID                                                   Usage      |
-|=============================================================================|
-|    0   N/A  N/A      1151      G   /usr/lib/xorg/Xorg                133MiB |
-|    0   N/A  N/A      1470      G   /usr/bin/gnome-shell               45MiB |
-+-----------------------------------------------------------------------------+
-</code></pre></div></li>
-</ol>
-</li>
-<li>
-<p>Install Vulkan Graphics Library (Skip if already installed).</p>
-<ol>
-<li>Update the environment.
-<div class="highlight"><pre><span></span><code>sudo apt update
-</code></pre></div></li>
-<li>Install the library.
-<div class="highlight"><pre><span></span><code>sudo apt install libvulkan1
-</code></pre></div></li>
-</ol>
-</li>
-<li>
-<p>Download and Run AWSIM Demo binary.</p>
-<ol>
-<li>
-<p>Download <code>AWSIM_v1.1.0.zip</code>.</p>
+<p>Download the <code>AWSIM_v1.1.0.zip</code>.</p>
 <p><a class="md-button md-button--primary" href="https://github.com/tier4/AWSIM/releases/download/v1.1.0/AWSIM_v1.1.0.zip">Download AWSIM Demo for ubuntu</a></p>
 </li>
 <li>
@@ -1404,8 +1339,10 @@ Fri Oct 14 01:41:05 2022
 </li>
 <li>
 <p>Make the <code>AWSIM_demo.x86_64</code> file executable.</p>
-<p>Rightclick the <code>AWSIM_demo.x86_64</code> file and check the <code>Execute</code> checkbox</p>
-<p><img alt="Make binary executable image" src="Image_1.png" /></p>
+<p>Rightclick the <code>AWSIM_demo.x86_64</code> file and check the <code>Execute</code> checkbox
+<!-- <img alt="Make binary executable gif" src="demo_executable.gif" /> -->
+<img alt="Make binary executable gif" src="demo_executable.gif" /></p>
+<!-- <img alt="Make binary executable image" src="Image_1.png" /> -->
 <p>or execute the command below.</p>
 <div class="highlight"><pre><span></span><code>chmod +x &lt;path to AWSIM folder&gt;/AWSIM_demo.x86_64
 </code></pre></div>
@@ -1418,15 +1355,42 @@ Fri Oct 14 01:41:05 2022
 <p class="admonition-title">Warning</p>
 <p>It may take some time for the application to start the so please wait until image similar to the one presented below is visible in your application window.</p>
 </div>
-<p><img alt="Running system image" src="Image_0.png" /></p>
+<p>Running AWSIM should look something like te one below.</p>
+<p><img alt="Running system image" src="awsim.png" /></p>
 </li>
 </ol>
+<h2 id="run-with-autoware-gifsvideo">Run with Autoware (<strong>gifs/video</strong>)</h2>
+<!-- TODO whole section -->
+
+<ol>
+<li>
+<p>Launch AWSIM like in <a href="#download-and-run">section before</a></p>
 </li>
 <li>
-<p>Run with Autoware (<strong>gifs/video</strong>)</p>
+<p>Launch Autoware.</p>
+<ol>
+<li>
+<p>Open new terminal and source the Autoware workspace</p>
+<div class="highlight"><pre><span></span><code>source &lt;autoware workspace&gt;/install/setub.bash
+</code></pre></div>
+</li>
+<li>
+<p>Launch the Autoware</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p><code>&lt;your mapfile location&gt;</code> must be changed arbitrarily.
+Specify the path to the outermost map folder.
+When specifying the path the <code>~</code> operator cannot be used - please specify absolute full path, or use the <code>$HOME</code> environmental variable.</p>
+</div>
+<div class="highlight"><pre><span></span><code>source install/setup.bash
+ros2 launch autoware_launch e2e_simulator.launch.xml vehicle_model:=sample_vehicle sensor_model:=awsim_sensor_kit map_path:=&lt;your mapfile location&gt;
+</code></pre></div>
 </li>
 </ol>
-<!-- TODO whole section -->
+<p>Successfully launched Autoware should look something like the one below.</p>
+<p><img alt="autoware" src="autoware.png" /></p>
+</li>
+</ol>
 
 
 

@@ -66,6 +66,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#automatic-position-initialization" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -539,9 +544,45 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Set the initialization position
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Set the initialization position
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-position-initialization" class="md-nav__link">
+    Automatic position initialization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-position-initialization" class="md-nav__link">
+    Manual position initialization
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1194,6 +1235,28 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#automatic-position-initialization" class="md-nav__link">
+    Automatic position initialization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-position-initialization" class="md-nav__link">
+    Manual position initialization
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1212,8 +1275,33 @@
 
   <h1>Set the initialization position</h1>
 
-<p>(<strong>video/gif</strong> showing how the position is automatically initialized, additionally a presentation of manual correction via rviz)</p>
-<!-- TODO everything -->
+<h2 id="automatic-position-initialization">Automatic position initialization</h2>
+<p>When launching Autioware after AWSIM has been launched the ego vehicle position should be automatically initialized in Autoware.
+When this does not happen please see this <a href="#manual-position-initialization">section</a>.</p>
+<p>The full process can be seen in the video below (open in full screen mode to see the details).</p>
+<video width="1920" controls>
+  <source src="autoware_launch.webm" type="video/webm">
+</video>
+
+<h2 id="manual-position-initialization">Manual position initialization</h2>
+<p>In order to set position of ego vehicle manually</p>
+<ol>
+<li>
+<p>Click <code>2D Pose Estimate</code> button.</p>
+<p><img alt="pose estimate button" src="click_estimate.gif" /></p>
+</li>
+<li>
+<p>Click and drag on the road area position to set estimated position and orientation.</p>
+<p><img alt="pose estimate" src="estimate_pose.gif" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>The position and orientation to set in demo should be the same as in the video in <a href="#automatic-position-initialization">this section</a>.</p>
+</div>
+</li>
+<li>
+<p>Wait for the ego vehicle to appear.</p>
+</li>
+</ol>
 
 
 
