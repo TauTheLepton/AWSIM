@@ -512,6 +512,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#install-git" class="md-nav__link">
+    Install Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-nvidia-gpu-driver" class="md-nav__link">
+    Install Nvidia GPU driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-vulkan-graphics-library" class="md-nav__link">
+    Install Vulkan Graphics Library
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -533,7 +554,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-git" class="md-nav__link">
+  <a href="#install-git_1" class="md-nav__link">
     Install Git
   </a>
   
@@ -547,7 +568,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-vulkan-graphics-library" class="md-nav__link">
+  <a href="#install-vulkan-graphics-library_1" class="md-nav__link">
     Install Vulkan Graphics Library
   </a>
   
@@ -562,19 +583,6 @@
   <a href="#installing-autoware-70-current-launching-autoware" class="md-nav__link">
     Installing Autoware [70% current Launching Autoware]
   </a>
-  
-    <nav class="md-nav" aria-label="Installing Autoware [70% current Launching Autoware]">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#launching-autoware" class="md-nav__link">
-    Launching Autoware
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1337,6 +1345,27 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#install-git" class="md-nav__link">
+    Install Git
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-nvidia-gpu-driver" class="md-nav__link">
+    Install Nvidia GPU driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-vulkan-graphics-library" class="md-nav__link">
+    Install Vulkan Graphics Library
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1358,7 +1387,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-git" class="md-nav__link">
+  <a href="#install-git_1" class="md-nav__link">
     Install Git
   </a>
   
@@ -1372,7 +1401,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#install-vulkan-graphics-library" class="md-nav__link">
+  <a href="#install-vulkan-graphics-library_1" class="md-nav__link">
     Install Vulkan Graphics Library
   </a>
   
@@ -1387,19 +1416,6 @@
   <a href="#installing-autoware-70-current-launching-autoware" class="md-nav__link">
     Installing Autoware [70% current Launching Autoware]
   </a>
-  
-    <nav class="md-nav" aria-label="Installing Autoware [70% current Launching Autoware]">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#launching-autoware" class="md-nav__link">
-    Launching Autoware
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1473,24 +1489,50 @@ To apply required localhost settings please add the following lines to <code>~/.
 </code></pre></div>
 <p>If you are having trouble with network connection consider replacing <code>export ROS_LOCALHOST_ONLY=1</code> with <code>export ROS_DOMAIN_ID=XX</code> where <code>XX</code> is a unique number in your network between 0 and 101 inclusive.
 For more information about <code>ROS_DOMAIN_ID</code> head to official <a href="https://docs.ros.org/en/rolling/Concepts/About-Domain-ID.html">documentation</a>.</p>
-<pre><code>- Install Git
-- Install Nvidia GPU driver (**gif** - how to test)
-- Install Vulkan Graphics Library
-</code></pre>
+<h3 id="install-git">Install Git</h3>
+<!-- TODO -->
+
+<h3 id="install-nvidia-gpu-driver">Install Nvidia GPU driver</h3>
+<p>On Ubuntu you can open <code>Additional Drivers</code> application and from there select one driver and install it.
+<img alt="additional drivers" src="gpu_drivers.png" /></p>
+<p>Other possibility is to install drivers from command line.</p>
+<ul>
+<li>Add Nvidia driver to apt repository.
+<div class="highlight"><pre><span></span><code>sudo add-apt-repository ppa:graphics-drivers/ppa
+sudo apt update
+</code></pre></div></li>
+<li>Install the recommended version of the driver.
+<div class="highlight"><pre><span></span><code>sudo ubuntu-drivers autoinstall
+</code></pre></div></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>After installing drivers restart your pc.</p>
+</div>
+<p>To check whether the drivers are working correctly run <code>nvidia-smi</code> command in terminal and check whether you get a result similar to the one below.</p>
+<p><img alt="nvidia-smi" src="nvidia_check.gif" /></p>
+<h3 id="install-vulkan-graphics-library">Install Vulkan Graphics Library</h3>
+<p>To install Vulkan Graphics Library</p>
+<ul>
+<li>Update the environment.
+<div class="highlight"><pre><span></span><code>sudo apt update
+</code></pre></div></li>
+<li>Install Vulkan library
+<div class="highlight"><pre><span></span><code>sudo apt install libvulkan1
+</code></pre></div></li>
+</ul>
 <h2 id="windows">Windows</h2>
 <!-- TODO -->
 <h3 id="localhost-settings_1">Localhost settings</h3>
 <!-- TODO -->
-<h3 id="install-git">Install Git</h3>
+<h3 id="install-git_1">Install Git</h3>
 <!-- TODO -->
 <h3 id="install-nvidia-gpu-driver-gif-how-to-test">Install Nvidia GPU driver (<strong>gif</strong> - how to test)</h3>
 <!-- TODO -->
-<h3 id="install-vulkan-graphics-library">Install Vulkan Graphics Library</h3>
-<!-- TODO -->
-<h2 id="installing-autoware-70-current-launching-autoware">Installing Autoware [70% current Launching Autoware]</h2>
+<h3 id="install-vulkan-graphics-library_1">Install Vulkan Graphics Library</h3>
 <!-- TODO -->
 
-<h3 id="launching-autoware">Launching Autoware</h3>
+<h2 id="installing-autoware-70-current-launching-autoware">Installing Autoware [70% current Launching Autoware]</h2>
 <!-- TODO copied from old -->
 
 <p>In order to configure and run the Autoware software with the AWSIM demo, please:</p>
