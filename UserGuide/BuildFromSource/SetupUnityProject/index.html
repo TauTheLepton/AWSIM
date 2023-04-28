@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#environment-preparation" class="md-skip">
+        <a href="#system-setup" class="md-skip">
           Skip to content
         </a>
       
@@ -685,36 +685,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#environment-preparation" class="md-nav__link">
-    Environment preparation
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment preparation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#system-setup" class="md-nav__link">
     System setup
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#open-awsim-project" class="md-nav__link">
     Open AWSIM project
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#import-external-packages" class="md-nav__link">
     Import external packages
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1262,36 +1249,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#environment-preparation" class="md-nav__link">
-    Environment preparation
-  </a>
-  
-    <nav class="md-nav" aria-label="Environment preparation">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
   <a href="#system-setup" class="md-nav__link">
     System setup
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#open-awsim-project" class="md-nav__link">
     Open AWSIM project
   </a>
   
 </li>
-        
-          <li class="md-nav__item">
+      
+        <li class="md-nav__item">
   <a href="#import-external-packages" class="md-nav__link">
     Import external packages
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1315,20 +1289,13 @@
 
   <h1>Setup Unity Project</h1>
 
-<ul>
-<li>Download and open project [90% current - including warning] (<strong>gifs</strong>)</li>
-<li>Download and import map files (<strong>gifs</strong>)</li>
-</ul>
-<!-- TODO copied old and fixed links except of one below -->
-
-<!-- TODO update link -->
+<!-- TODO update link, but idk what should it point to, because what was once one page now is like 2 sections full of pages -->
 <div class="admonition info">
 <p class="admonition-title">Info</p>
-<p>It is advised to checkout the <a href="../QuickStartDemo">Quick Start Demo</a> tutorial before reading this section. </p>
+<p>It is advised to checkout the <a href="../QuickStartDemo">Quick Start Demo</a> tutorial before reading this section.</p>
 </div>
 <p>This page is a tutorial for setting up a AWSIM Unity project.</p>
-<h2 id="environment-preparation">Environment preparation</h2>
-<h3 id="system-setup">System setup</h3>
+<h2 id="system-setup">System setup</h2>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu 22</label><label for="__tabbed_1_2">Windows</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
@@ -1354,31 +1321,31 @@
 </div>
 </div>
 </div>
-<h3 id="open-awsim-project">Open AWSIM project</h3>
-<p>To open the Unity AWSIM project in Unity Editor:
-1. Make sure you have the AWSIM repository cloned
-    <div class="highlight"><pre><span></span><code>git clone git@github.com:tier4/AWSIM.git
-</code></pre></div></p>
+<h2 id="open-awsim-project">Open AWSIM project</h2>
+<p>To open the Unity AWSIM project in Unity Editor:</p>
 <ol>
 <li>
-<p>Launch UnityHub.
-    <div class="highlight"><pre><span></span><code>./UnityHub.AppImage
+<p>Make sure you have the AWSIM repository cloned
+    <div class="highlight"><pre><span></span><code>git clone git@github.com:tier4/AWSIM.git
 </code></pre></div></p>
+</li>
+<li>
+<p>Launch UnityHub.</p>
 </li>
 <li>
 <p>Open the project in UnityHub</p>
 <ul>
 <li>
-<p>Click the <code>Open</code> button
-<img alt="" src="image_6.png" /></p>
+<p>Click the <code>Open</code> button in Unity Hub
+<img alt="" src="open_unity_project1.gif" /></p>
 </li>
 <li>
-<p>Navigate the directory where the AWSIM repository was cloned to
-<img alt="" src="image_7.png" /></p>
+<p>Navigate the directory where the AWSIM repository was cloned to, select it and click <code>Open</code> in file explorer
+<img alt="" src="open_unity_project2.gif" /></p>
 </li>
 <li>
-<p>The project should be added to <code>Projects</code> tab in Unity Hub. To launch the project in Unity Editor simply click the <code>AWSIM</code> item
-<img alt="" src="image_8.png" /></p>
+<p>The project should open automatically, if it doesn't it still should be added to <code>Projects</code> tab in Unity Hub. To launch the project in Unity Editor simply click the <code>AWSIM</code> item
+<img alt="" src="launch_unity_project.gif" /></p>
 </li>
 <li>
 <p>The project is now ready to use
@@ -1397,20 +1364,29 @@
 <code>sudo dpkg -i libssl1.0.0_1.0.2n-1ubuntu5.11_amd64.deb</code></li>
 </ol>
 </div>
-<h3 id="import-external-packages">Import external packages</h3>
+<h2 id="import-external-packages">Import external packages</h2>
 <p>To properly run and use AWSIM project in Unity it is required to download map package which is not included in the repository.</p>
 <ol>
 <li>
-<p>Download and import <code>Japan_Tokyo_Nishishinjuku.unitypackage</code></p>
+<p>Download <code>Japan_Tokyo_Nishishinjuku.unitypackage</code></p>
 <p><a class="md-button md-button--primary" href="https://github.com/tier4/AWSIM/releases/download/v1.1.0/Japan_Tokyo_Nishishinjuku.unitypackage">Download Map files (unitypackage)</a></p>
 </li>
 <li>
-<p>In Unity Editor, from the menu bar at the top, select <code>Assets -&gt; Import Package -&gt; Custom Package...</code> and navigate the <code>Japan_Tokyo_Nishishinjuku.unitypackage</code> file.
-<img alt="" src="image_10.png" />
-<img alt="" src="image_11.png" /></p>
+<p>In Unity Editor, from the menu bar at the top, select <code>Assets -&gt; Import Package -&gt; Custom Package...</code>
+<img alt="" src="import_unity_package1.gif" /></p>
 </li>
-<li><code>Nishishinjuku</code> package has been successfully imported under <code>Assets/AWSIM/Externals/</code>directory.
-<img alt="" src="image_12.png" /></li>
+<li>
+<p>Navigate the <code>Japan_Tokyo_Nishishinjuku.unitypackage</code> file and open it
+<img alt="" src="import_unity_package2.gif" /></p>
+</li>
+<li>
+<p>In import window that appeared click the <code>Import</code> button to confirm and wait for the process to finish.
+<img alt="" src="import_unity_package3.gif" /></p>
+</li>
+<li>
+<p><code>Nishishinjuku</code> package has been successfully imported under <code>Assets/AWSIM/Externals/</code>directory.
+<img alt="" src="image_12.png" /></p>
+</li>
 </ol>
 <div class="admonition info">
 <p class="admonition-title">Info</p>

@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#unity-installation" class="md-skip">
+        <a href="#unityhub-installation" class="md-skip">
           Skip to content
         </a>
       
@@ -671,6 +671,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#unityhub-installation" class="md-nav__link">
+    UnityHub installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#unity-installation" class="md-nav__link">
     Unity installation
   </a>
@@ -1235,6 +1242,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#unityhub-installation" class="md-nav__link">
+    UnityHub installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#unity-installation" class="md-nav__link">
     Unity installation
   </a>
@@ -1261,38 +1275,45 @@
 
   <h1>Unity installation</h1>
 
-<ul>
-<li>UnityHub installation (<strong>gifs</strong>)</li>
-</ul>
+<h2 id="unityhub-installation">UnityHub installation</h2>
 <!-- TODO gifs of command line?? -->
-<p>To install UnityHub please follow <a href="https://docs.unity3d.com/hub/manual/InstallHub.html#debian-or-ubuntu">these instructions</a>.</p>
-<ul>
-<li>Unity 2021.1.7f1 installation [70% current] (<strong>gifs</strong>)</li>
-</ul>
+<p>To install Unity Hub on Linux please follow <a href="https://docs.unity3d.com/hub/manual/InstallHub.html#install-hub-linux">these instructions</a>.</p>
+<p>To be on the safe side always check the official documentation on how to install Unity Hub, this code is just for reference.</p>
+<ol>
+<li>Add the public signing key
+    <div class="highlight"><pre><span></span><code>wget -qO - https://hub.unity3d.com/linux/keys/public | gpg --dearmor | sudo tee /usr/share/keyrings/Unity_Technologies_ApS.gpg &gt; /dev/null
+</code></pre></div></li>
+<li>Add Unity Hub repository to your sources
+    <div class="highlight"><pre><span></span><code>sudo sh -c &#39;echo &quot;deb [signedby=/usr/share/keyrings/Unity_Technologies_ApS.gpg] https://hub.unity3d.com/linux/repos/deb stable main&quot; &gt; /etc/apt/sources.list.d/unityhub.list&#39;
+</code></pre></div></li>
+<li>Update package cache and install package
+    <div class="highlight"><pre><span></span><code>sudo apt update
+sudo apt-get install unityhub
+</code></pre></div></li>
+</ol>
+<!-- - Unity 2021.1.7f1 installation [70% current] (**gifs**) -->
 <!-- TODO copied old, but it is outdated, UnityHub now comes as a package from apt, not an appImage,
 so all instructiona are wrong -->
 
-<h3 id="unity-installation">Unity installation</h3>
+<h2 id="unity-installation">Unity installation</h2>
 <div class="admonition info">
 <p class="admonition-title">Info</p>
 <p>AWSIM's Unity version is currently <strong>2021.1.7f1</strong></p>
 </div>
 <p>Follow the steps below to install Unity on your machine:</p>
 <ol>
-<li>Install UnityHub to manage Unity projects. Please go to <a href="https://unity3d.com/get-unity/download">Unity download page</a> and download latest <code>UnityHub.AppImage</code>.
-<img alt="" src="image_1.png" /></li>
+<li>Install UnityHub to manage Unity projects. Please refer to <a href="#unityhub-installation">UnityHub installation</a> section.</li>
 <li>
 <p>Install Unity 2021.1.7f1 via UnityHub.</p>
 <ul>
-<li>Open new terminal, navigate to directory where <code>UnityHub.AppImage</code> is download and execute the following command:
-<div class="highlight"><pre><span></span><code>./UnityHub.AppImage
-</code></pre></div></li>
-<li>To install Unity Editor please proceed as shown on the images below
-<img alt="" src="image_2.png" />
-<img alt="" src="image_3.png" />
-<img alt="" src="image_4.png" /></li>
+<li>Open Unity Hub as every other application on your PC (terminal or application menu)</li>
+<li>Click <code>Install Editor</code> in <code>Installs</code> tab and navigate to <code>download archive</code> as shown below
+<img alt="download unity gif 1" src="download_unity1.gif" /></li>
+<li>Unity webpage will open, here navigate Unity version <em>2021.1.7</em> and download it as shown below
+<img alt="download unity gif 2" src="download_unity2.gif" /></li>
 <li>
-<p>At this point, your Unity installation process should have started.</p>
+<p>At this point, your Unity installation process should have started.
+    <!-- TODO this is an old command for AppImage, does this method work for packaged application as well? --></p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu 22</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block"></div>
