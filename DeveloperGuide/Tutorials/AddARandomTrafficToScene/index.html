@@ -66,6 +66,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#add-a-random-traffic-simulator-script" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -992,9 +997,93 @@
       
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Add a RandomTraffic to scene
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         Add a RandomTraffic to scene
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-random-traffic-simulator-script" class="md-nav__link">
+    Add a Random Traffic Simulator Script
+  </a>
+  
+    <nav class="md-nav" aria-label="Add a Random Traffic Simulator Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-trafficintersection" class="md-nav__link">
+    Add a TrafficIntersection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-stoplines-and-trafficlanes-from-lanelet" class="md-nav__link">
+    Load StopLines and Trafficlanes from Lanelet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-loaded-trafficlanes" class="md-nav__link">
+    Complete loaded TrafficLanes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-test" class="md-nav__link">
+    How to test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-stopline-manually" class="md-nav__link">
+    Add a StopLine manually
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-trafficlane-manually" class="md-nav__link">
+    Add a TrafficLane manually
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1194,6 +1283,76 @@
   
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-random-traffic-simulator-script" class="md-nav__link">
+    Add a Random Traffic Simulator Script
+  </a>
+  
+    <nav class="md-nav" aria-label="Add a Random Traffic Simulator Script">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-trafficintersection" class="md-nav__link">
+    Add a TrafficIntersection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#load-stoplines-and-trafficlanes-from-lanelet" class="md-nav__link">
+    Load StopLines and Trafficlanes from Lanelet
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-loaded-trafficlanes" class="md-nav__link">
+    Complete loaded TrafficLanes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-test" class="md-nav__link">
+    How to test
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-stopline-manually" class="md-nav__link">
+    Add a StopLine manually
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-trafficlane-manually" class="md-nav__link">
+    Add a TrafficLane manually
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1254,6 +1413,30 @@
 <li>Add waypoints (guidelines - case without stop line, <strong>gifs</strong>)</li>
 <li>Add a next and prev lanes (<strong>gifs</strong>)</li>
 </ul>
+<h2 id="add-a-random-traffic-simulator-script">Add a Random Traffic Simulator Script</h2>
+<p>To add a Random Traffic to your scene you need the Random Traffic Simulator Script.
+To add it to your scene create a new Game Object and call it <code>RandomTrafficSimulator</code> with optional prefix or suffix indicating for which location it is created.
+<img alt="create_random_traffic_simulator" src="create_random_traffic_simulator.gif" /></p>
+<p>Then click a button <code>Add Component</code> in the <code>Inspector</code> to add a script
+<img alt="add_component_random_traffic_simulator" src="add_component_random_traffic_simulator.gif" /></p>
+<p>A small window should pop-up.
+Search for <code>RandomTrafficSimulator</code> script and add it by double clicking it or by pressing enter.</p>
+<p><img alt="add_component_random_traffic_simulator" src="add_component_random_traffic_simulator.png" /></p>
+<h3 id="configuration">Configuration</h3>
+<p>After clicking on the newly created <code>RandomTrafficSimulator</code> object in the Scene tree you should see something like this in the <code>Inspector</code> view</p>
+<p><img alt="random_traffic_simulator_inspector" src="random_traffic_simulator_inspector.png" /></p>
+<p>Random Traffic Simulator as the name suggests generates traffic based on random numbers.
+To replicate situations you can set a specific <a href="https://en.wikipedia.org/wiki/Random_seed">seed</a>.</p>
+<p>You can also set <code>Vehicle Layer Mask</code> and <code>Ground Layer Mask</code>.
+It is important to set these layers correctly, as they are a base for vehicle physics.
+If set incorrectly the vehicles may fall through the ground into the infinity.</p>
+<p><img alt="random_traffic_simulator_layers" src="random_traffic_simulator_layers.png" /></p>
+<h2 id="add-a-trafficintersection">Add a TrafficIntersection</h2>
+<h2 id="load-stoplines-and-trafficlanes-from-lanelet">Load StopLines and Trafficlanes from Lanelet</h2>
+<h2 id="complete-loaded-trafficlanes">Complete loaded TrafficLanes</h2>
+<h2 id="how-to-test">How to test</h2>
+<h2 id="add-a-stopline-manually">Add a StopLine manually</h2>
+<h2 id="add-a-trafficlane-manually">Add a TrafficLane manually</h2>
 
 
 

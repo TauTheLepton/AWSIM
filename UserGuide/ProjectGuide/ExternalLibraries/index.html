@@ -1956,8 +1956,18 @@ Get-ChildItem C:\ros2-for-unity\install\asset\Ros2ForUnity\Plugins\Windows\x86_6
 <!-- TODO description, reasons for using, hyperlink -->
 <p><a href="https://github.com/RobotecAI/RobotecGPULidar">Robotec GPU Lidar</a> is an open source high performance lidar simulator running on CUDA-enabled GPUs.
 It is used because of the performance benefits (calculations happen on the GPU).</p>
+<p>RobotecGPULidar can also perform parallelized point cloud calculations e.g. transformations.</p>
 <h3 id="scenemanager-script">SceneManager Script</h3>
 <!-- TODO description -->
+<p>Scene Manager is a script responsible for synchronizing model data between Unity and RGL.</p>
+<p>SceneManager synchronizes 3D model data in time keeping track of what is changing between frames.
+It obtains 3D models from Game Objects when they are needed and deletes them when they are no longer needed.</p>
+<p>This script can obtain 3D model in several different ways from a Game Object:</p>
+<ol>
+<li>From active colliders in the Game Object</li>
+<li>From mesh in the Game Object</li>
+<li>From mesh for non-skinned MeshRenderers and from colliders for SkinnedMeshRenderers</li>
+</ol>
 
 
 
