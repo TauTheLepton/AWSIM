@@ -1028,8 +1028,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
+  <a href="#basic-configuration" class="md-nav__link">
+    Basic Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-npc-vehicles" class="md-nav__link">
+    Add NPC Vehicles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-spawnable-lanes" class="md-nav__link">
+    Add spawnable lanes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicles-configuration" class="md-nav__link">
+    Vehicles configuration
   </a>
   
 </li>
@@ -1298,8 +1319,29 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuration" class="md-nav__link">
-    Configuration
+  <a href="#basic-configuration" class="md-nav__link">
+    Basic Configuration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-npc-vehicles" class="md-nav__link">
+    Add NPC Vehicles
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-spawnable-lanes" class="md-nav__link">
+    Add spawnable lanes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vehicles-configuration" class="md-nav__link">
+    Vehicles configuration
   </a>
   
 </li>
@@ -1422,7 +1464,7 @@ To add it to your scene create a new Game Object and call it <code>RandomTraffic
 <p>A small window should pop-up.
 Search for <code>RandomTrafficSimulator</code> script and add it by double clicking it or by pressing enter.</p>
 <p><img alt="add_component_random_traffic_simulator" src="add_component_random_traffic_simulator.png" /></p>
-<h3 id="configuration">Configuration</h3>
+<h3 id="basic-configuration">Basic Configuration</h3>
 <p>After clicking on the newly created <code>RandomTrafficSimulator</code> object in the Scene tree you should see something like this in the <code>Inspector</code> view</p>
 <p><img alt="random_traffic_simulator_inspector" src="random_traffic_simulator_inspector.png" /></p>
 <p>Random Traffic Simulator as the name suggests generates traffic based on random numbers.
@@ -1431,6 +1473,93 @@ To replicate situations you can set a specific <a href="https://en.wikipedia.org
 It is important to set these layers correctly, as they are a base for vehicle physics.
 If set incorrectly the vehicles may fall through the ground into the infinity.</p>
 <p><img alt="random_traffic_simulator_layers" src="random_traffic_simulator_layers.png" /></p>
+<h3 id="add-npc-vehicles">Add NPC Vehicles</h3>
+<p>Random Traffic Simulator Script moves, spawns and despawns vehicles based on the configuration.
+These settings can to be adjusted to your preference.</p>
+<ol>
+<li>
+<p>Setting Max Vehicle Count.</p>
+</li>
+<li>
+<p>Add NPC Prefabs</p>
+<ul>
+<li>
+<p>To do this click on the "+" sign and in the new list element at the bottom and click on the small icon on the right to select a prefab.</p>
+<p><img src="add_npc_prefab1.gif" alt="Add npc list element gif" width="500"/></p>
+</li>
+<li>
+<p>Change to the <code>Assets</code> tab in the small windows that popped-up.</p>
+<p><img src="add_npc_prefab2.gif" alt="Select Assets tab gif" width="500"/></p>
+</li>
+<li>
+<p>Search for the Vehicle prefab you want to add, e.g. <code>Hatchback</code>.</p>
+<p><img src="add_npc_prefab3.gif" alt="Search a prefab gif" width="500"/></p>
+</li>
+</ul>
+<p>Available NPC prefabs are shown in the <a href="../../../UserGuide/Components/NPCs/#npc-vehicle">NPC Vehicle section</a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Random Traffic Simulator Script will <strong>on random</strong> select one prefab from <code>Npc Prefabs</code> list every time when there  are not enough vehicles on the scene (the number of vehicles on the scene is smaller than the number specified in the <code>Max Vehicle Count</code> field).
+You can control the odds of selecting one vehicle prefab over another by adding more than one instance of the same prefab to this list.</p>
+</div>
+</li>
+</ol>
+<h3 id="add-spawnable-lanes">Add spawnable lanes</h3>
+<p>Spawnable lanes are the lanes on which new vehicles can be spawned by the Random Traffic Simulator Script.
+Best practice is to use beginnings of the lanes on the edges of the map as spawnable lanes.</p>
+<!-- TODO link to loading a lanelet if it exists -->
+<p>To add a spawnable lane make sure you have a lanelet loaded into your scene.
+Adding spawnable lanes is similar to <a href="#add-npc-vehicles">Adding NPC Prefabs</a>.</p>
+<ol>
+<li>
+<p>Add an element to the <code>Spawnable Lanes</code> list by clicking on the "+" symbol or by selecting number of lanes directly.</p>
+<p><img src="add_traffic_lane1.gif" alt="Add npc list element gif" width="500"/></p>
+</li>
+<li>
+<p>Now you can click on the small icon on the right of the list element and select a Traffic Lane you are interested in.</p>
+<p><img src="add_traffic_lane2.gif" alt="Select traffic late gif" width="500"/></p>
+<p>Unfortunately all Traffic Lanes have the same names so it can be difficult to know which one to use.
+Alternatively you can do the following to add a traffic lane by visually selecting it in the editor:</p>
+<ul>
+<li>
+<p>Lock <code>RandomTrafficSimulator</code> in the Inspector view.</p>
+<p><img src="add_traffic_lane3.gif" alt="Lock inspector view gif" width="500"/></p>
+</li>
+<li>
+<p>Select Traffic Lane you are interested in on the Scene and as it gets highlighted in the Hierarchy view you can now drag and drop this Traffic Lane into the appropriate list element.</p>
+<p><img alt="Select traffic lane and drag it to the list gif" src="add_traffic_lane4.gif" /></p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="vehicles-configuration">Vehicles configuration</h3>
+<p>The last thing to configure is the behavior of NPC Vehicles.
+You can specify acceleration rate  of vehicles and three values of deceleration.</p>
+<p><img alt="Vehicle configuration picture" src="vehicle_configuration.png" /></p>
+<ul>
+<li>
+<p>Acceleration</p>
+<p>This value is used for every acceleration the vehicle performs (after stop line or traffic lights).</p>
+</li>
+<li>
+<p>Deceleration</p>
+<p>This deceleration value is used for most casual traffic situations like slowing down before stop line.</p>
+</li>
+<li>
+<p>Sudden Deceleration</p>
+<p>This deceleration rate is used for emergency situations, so when using standard deceleration rate is not enough to prevent some accident from happening (e.g. vehicle on the intersection didn't give way when it was supposed to).</p>
+</li>
+<li>
+<p>Absolute Deceleration</p>
+<p>This deceleration rate is a last resort for preventing a crash from happening.
+When no other deceleration is enough to prevent an accident this value is used.
+This should be set to the highest value achievable by a vehicle.</p>
+</li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This configuration is common for all vehicles managed by the Random Traffic Simulator Script.</p>
+</div>
 <h2 id="add-a-trafficintersection">Add a TrafficIntersection</h2>
 <h2 id="load-stoplines-and-trafficlanes-from-lanelet">Load StopLines and Trafficlanes from Lanelet</h2>
 <h2 id="complete-loaded-trafficlanes">Complete loaded TrafficLanes</h2>
