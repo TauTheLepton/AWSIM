@@ -1004,6 +1004,88 @@
     Create a prefab
   </a>
   
+    <nav class="md-nav" aria-label="Create a prefab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guidelines-for-making-3d-models" class="md-nav__link">
+    Guidelines for making 3d models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-environment-script" class="md-nav__link">
+    Add a Environment Script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localization-information" class="md-nav__link">
+    Localization information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-roads-buildings-greenery-signs-road-markings" class="md-nav__link">
+    Add roads, buildings, greenery, signs, road markings…
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-traffic-lights" class="md-nav__link">
+    Add Traffic Lights
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Traffic Lights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-traffic-light-script" class="md-nav__link">
+    Add Traffic Light Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-directional-light" class="md-nav__link">
+    Add a Directional Light
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-volume" class="md-nav__link">
+    Add a Volume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-npcpedestrians" class="md-nav__link">
+    Add NPCPedestrians
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-randomtraffic" class="md-nav__link">
+    Add a RandomTraffic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1275,6 +1357,88 @@
     Create a prefab
   </a>
   
+    <nav class="md-nav" aria-label="Create a prefab">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#guidelines-for-making-3d-models" class="md-nav__link">
+    Guidelines for making 3d models
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-environment-script" class="md-nav__link">
+    Add a Environment Script
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#localization-information" class="md-nav__link">
+    Localization information
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-roads-buildings-greenery-signs-road-markings" class="md-nav__link">
+    Add roads, buildings, greenery, signs, road markings…
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-traffic-lights" class="md-nav__link">
+    Add Traffic Lights
+  </a>
+  
+    <nav class="md-nav" aria-label="Add Traffic Lights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-traffic-light-script" class="md-nav__link">
+    Add Traffic Light Script
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-directional-light" class="md-nav__link">
+    Add a Directional Light
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-volume" class="md-nav__link">
+    Add a Volume
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-npcpedestrians" class="md-nav__link">
+    Add NPCPedestrians
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-a-randomtraffic" class="md-nav__link">
+    Add a RandomTraffic
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1343,6 +1507,45 @@
 </ul>
 <h2 id="create-a-lanelet2">Create a lanelet2</h2>
 <h2 id="create-a-prefab">Create a prefab</h2>
+<h3 id="guidelines-for-making-3d-models">Guidelines for making 3d models</h3>
+<h3 id="add-a-environment-script">Add a Environment Script</h3>
+<p>Add en Environment Script into an Environment Object which should be a child of your Simulation Object.</p>
+<ol>
+<li>
+<p>Click on the 'Add Component' button in the Environment object</p>
+<p><img alt="Add environment script gif" src="add_environment_script.gif" /></p>
+</li>
+<li>
+<p>Search for <code>Environment</code> and select it</p>
+<p><img alt="Search for environment script" src="search_environment_script.png" /></p>
+</li>
+<li>
+<p>Set the MGRS offset position to the global coordinates in which models are created</p>
+<p><img alt="environment mgrs" src="environment_mgrs.png" /></p>
+</li>
+<li>
+<p>For the Traffic Lanes to be positioned accurately you also need to set a positive 90 degree rotation over Y axis to an Environment Object</p>
+<p><img alt="environment transformation" src="environment_transformation.png" /></p>
+</li>
+</ol>
+<h3 id="localization-information">Localization information</h3>
+<p>In AWSIM all objects are located with their real world coordinates.
+This way the real world is represented accurately.</p>
+<p>When adding some static element to your scene that is a part of the world (like 3D models of buildings, traffic lights etc.) it is a good practice to aggregate them in one parent Object called <code>Map</code> or something similar.</p>
+<p>Then you can set a transformation of the parent Object <code>Map</code> to adjust the world position in reference to loaded Traffic Lanes from lanelet.</p>
+<h3 id="add-roads-buildings-greenery-signs-road-markings">Add roads, buildings, greenery, signs, road markings…</h3>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When adding static elements that belong to a certain map remember to add them to a Map Object as explained <a href="#localization-information">here</a>.</p>
+</div>
+<p>For the best possible representation </p>
+<h3 id="add-traffic-lights">Add Traffic Lights</h3>
+<h4 id="add-traffic-light-script">Add Traffic Light Script</h4>
+<h3 id="add-a-directional-light">Add a Directional Light</h3>
+<h3 id="add-a-volume">Add a Volume</h3>
+<h3 id="add-npcpedestrians">Add NPCPedestrians</h3>
+<h3 id="add-a-randomtraffic">Add a RandomTraffic</h3>
+<p>For information about how to add a Random Traffic to a scene please visit <a href="../AddARandomTrafficToScene/">this section</a></p>
 <h2 id="create-a-pcd-from-mesh">Create a PCD from Mesh</h2>
 
 

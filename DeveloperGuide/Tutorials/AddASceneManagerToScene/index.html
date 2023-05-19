@@ -1039,33 +1039,6 @@
     Selection of interaction strategies (Mesh Source)
   </a>
   
-    <nav class="md-nav" aria-label="Selection of interaction strategies (Mesh Source)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#only-colliders" class="md-nav__link">
-    Only Colliders
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#regular-meshes-and-colliders-instead-of-skinned" class="md-nav__link">
-    Regular Meshes And Colliders Instead Of Skinned
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#regular-meshes-and-skinned-meshes" class="md-nav__link">
-    Regular Meshes And Skinned Meshes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -1309,33 +1282,6 @@
     Selection of interaction strategies (Mesh Source)
   </a>
   
-    <nav class="md-nav" aria-label="Selection of interaction strategies (Mesh Source)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#only-colliders" class="md-nav__link">
-    Only Colliders
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#regular-meshes-and-colliders-instead-of-skinned" class="md-nav__link">
-    Regular Meshes And Colliders Instead Of Skinned
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#regular-meshes-and-skinned-meshes" class="md-nav__link">
-    Regular Meshes And Skinned Meshes
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
     </ul>
@@ -1358,7 +1304,6 @@
 
   <h1>Add a SceneManager to scene</h1>
 
-<!-- TODO everything -->
 <p>(prefab location, purpose of existence)</p>
 <ul>
 <li>Usage requirements (collider, mesh renderer, skinned mesh renderer, Read/Write Enabled)</li>
@@ -1376,25 +1321,39 @@ The prefab is located in the directory <code>Assets/AWSIM/Prefabs</code> in the 
 Scene Manager watches for changes on the scene every frame and makes appropriate changes in stored models.
 3D models are added and destroyed when they are needed or not needed anymore respectively.</p>
 <h2 id="usage-requirements">Usage requirements</h2>
+<!-- TODO -->
+
 <h2 id="add-a-prefab-to-scene">Add a prefab to scene</h2>
 <p>To add a Scene Manager prefab to a scene you need to</p>
 <ol>
-<li>Open the scene
-<img alt="open_scene" src="open_scene.png" /></li>
-<li>Find the prefab in the project (<code>Assets/AWSIM/Prefabs</code> directory)
-<img alt="scene_manager_prefab_location" src="scene_manager_prefab_location.png" /></li>
-<li>Drag the prefab into a Hierarchy view
-<img alt="add_prefab_to_scene" src="add_prefab_to_scene.gif" /></li>
+<li>
+<p>Open the scene</p>
+<p><img alt="open_scene" src="open_scene.png" /></p>
+</li>
+<li>
+<p>Find the prefab in the project (<code>Assets/AWSIM/Prefabs</code> directory)</p>
+<p><img alt="scene_manager_prefab_location" src="scene_manager_prefab_location.png" /></p>
+</li>
+<li>
+<p>Drag the prefab into a Hierarchy view</p>
+<p><img alt="add_prefab_to_scene" src="add_scene_manager.gif" /></p>
+</li>
+<li>
+<p>Rename this prefab to something like <code>AutowareSimulation</code> or just <code>Simulation</code> with preferred prefix or suffix and place all your simulation Game Objects as children (if you don't have any yet, this is where you will be placing them).</p>
+<p><img alt="Add scene manager to scene gif" src="add_scene_manager2.gif" />
+<img alt="Add scene manager to scene gif" src="add_scene_manager3.gif" /></p>
+</li>
 </ol>
 <h2 id="selection-of-interaction-strategies-mesh-source">Selection of interaction strategies (Mesh Source)</h2>
-<p>There are three possible interaction strategies for obtaining 3D models from Game Objects.
-Below is shown how to select each of them.</p>
-<h3 id="only-colliders">Only Colliders</h3>
+<p>There are three possible interaction strategies for obtaining 3D models from Game Objects.</p>
+<!-- TODO add descriptions to every one -->
+<ol>
+<li>Only Colliders</li>
+<li>Regular Meshes And Colliders Instead Of Skinned</li>
+<li>Regular Meshes And Skinned Meshes</li>
+</ol>
+<p>Please see the following on how to select the preferred strategy.</p>
 <p><img alt="scene_manager_only_colliders" src="scene_manager_only_colliders.gif" /></p>
-<h3 id="regular-meshes-and-colliders-instead-of-skinned">Regular Meshes And Colliders Instead Of Skinned</h3>
-<p><img alt="scene_manager_regular_meshes_and_colliders" src="scene_manager_regular_meshes_and_colliders.gif" /></p>
-<h3 id="regular-meshes-and-skinned-meshes">Regular Meshes And Skinned Meshes</h3>
-<p><img alt="scene_manager_regular_meshes_and_skinned" src="scene_manager_regular_meshes_and_skinned.gif" /></p>
 
 
 

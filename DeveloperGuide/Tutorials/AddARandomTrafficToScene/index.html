@@ -1076,11 +1076,25 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-a-trafficintersection" class="md-nav__link">
-    Add a TrafficIntersection
+  <a href="#load-stoplines-and-trafficlanes-from-lanelet" class="md-nav__link">
+    Load StopLines and Trafficlanes from Lanelet
   </a>
   
-    <nav class="md-nav" aria-label="Add a TrafficIntersection">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-loaded-trafficlanes" class="md-nav__link">
+    Complete loaded TrafficLanes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-traffic-intersection" class="md-nav__link">
+    Add a Traffic Intersection
+  </a>
+  
+    <nav class="md-nav" aria-label="Add a Traffic Intersection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1117,6 +1131,14 @@
     Create lighting sequences
   </a>
   
+    <nav class="md-nav" aria-label="Create lighting sequences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
 </li>
         
       </ul>
@@ -1128,18 +1150,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#load-stoplines-and-trafficlanes-from-lanelet" class="md-nav__link">
-    Load StopLines and Trafficlanes from Lanelet
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complete-loaded-trafficlanes" class="md-nav__link">
-    Complete loaded TrafficLanes
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1414,11 +1427,25 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-a-trafficintersection" class="md-nav__link">
-    Add a TrafficIntersection
+  <a href="#load-stoplines-and-trafficlanes-from-lanelet" class="md-nav__link">
+    Load StopLines and Trafficlanes from Lanelet
   </a>
   
-    <nav class="md-nav" aria-label="Add a TrafficIntersection">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-loaded-trafficlanes" class="md-nav__link">
+    Complete loaded TrafficLanes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#add-a-traffic-intersection" class="md-nav__link">
+    Add a Traffic Intersection
+  </a>
+  
+    <nav class="md-nav" aria-label="Add a Traffic Intersection">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1455,6 +1482,14 @@
     Create lighting sequences
   </a>
   
+    <nav class="md-nav" aria-label="Create lighting sequences">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    Example
+  </a>
+  
 </li>
         
       </ul>
@@ -1466,18 +1501,9 @@
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#load-stoplines-and-trafficlanes-from-lanelet" class="md-nav__link">
-    Load StopLines and Trafficlanes from Lanelet
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#complete-loaded-trafficlanes" class="md-nav__link">
-    Complete loaded TrafficLanes
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1565,14 +1591,22 @@
 <li>Add a next and prev lanes (<strong>gifs</strong>)</li>
 </ul>
 <h2 id="add-a-random-traffic-simulator-script">Add a Random Traffic Simulator Script</h2>
-<p>To add a Random Traffic to your scene you need the Random Traffic Simulator Script.
-To add it to your scene create a new Game Object and call it <code>RandomTrafficSimulator</code> with optional prefix or suffix indicating for which location it is created.
-<img alt="create_random_traffic_simulator" src="create_random_traffic_simulator.gif" /></p>
-<p>Then click a button <code>Add Component</code> in the <code>Inspector</code> to add a script
-<img alt="add_component_random_traffic_simulator" src="add_component_random_traffic_simulator.gif" /></p>
+<p>To add a Random Traffic to your scene you need the Random Traffic Simulator Script.</p>
+<ol>
+<li>
+<p>Create a new Game Object as a child of <code>Environment</code> and call it <code>RandomTrafficSimulator</code>.</p>
+<p><img alt="create_random_traffic_simulator" src="add_random_traffic_simulator.gif" /></p>
+</li>
+<li>
+<p>Click a button <code>Add Component</code> in the <code>Inspector</code> to add a script</p>
+<p><img alt="add_component_random_traffic_simulator" src="add_component_random_traffic_simulator.gif" /></p>
+</li>
+<li>
 <p>A small window should pop-up.
 Search for <code>RandomTrafficSimulator</code> script and add it by double clicking it or by pressing enter.</p>
 <p><img alt="add_component_random_traffic_simulator" src="add_component_random_traffic_simulator.png" /></p>
+</li>
+</ol>
 <h3 id="basic-configuration">Basic Configuration</h3>
 <p>After clicking on the newly created <code>RandomTrafficSimulator</code> object in the Scene tree you should see something like this in the <code>Inspector</code> view</p>
 <p><img alt="random_traffic_simulator_inspector" src="random_traffic_simulator_inspector.png" /></p>
@@ -1669,13 +1703,43 @@ This should be set to the highest value achievable by a vehicle.</p>
 <p class="admonition-title">Note</p>
 <p>This configuration is common for all vehicles managed by the Random Traffic Simulator Script.</p>
 </div>
-<h2 id="add-a-trafficintersection">Add a TrafficIntersection</h2>
+<h2 id="load-stoplines-and-trafficlanes-from-lanelet">Load StopLines and Trafficlanes from Lanelet</h2>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before following this tutorial make sure you have added an <a href="../AddANewEnvironment/#add-a-environment-script">Environment Script</a> and set a proper MGRS data.</p>
+</div>
+<ol>
+<li>
+<p>Click on the <code>AWSIM</code> button in the top menu of the Unity editor and navigate to <code>AWSIM -&gt; Random Traffic -&gt; Load Lanelet</code></p>
+<p><img alt="load lanelet gif" src="load_lanelet.gif" /></p>
+</li>
+<li>
+<p>In the window that pops-up select your osm file, change some Waypoint Settings to suit your needs and click <code>Load</code></p>
+<p><img alt="load lanelet gif" src="load_lanelet2.gif" /></p>
+<p>Waypoint Settings explanation:</p>
+<ul>
+<li>Resolution: resolution of resampling. Lower values provide better accuracy at the cost of processing time</li>
+<li>Min Delta Length: minimum length(m) between adjacent points</li>
+<li>Min Delta Angle: minimum angle(deg) between adjacent edges. Lowering this value produces a smoother curve</li>
+</ul>
+</li>
+<li>
+<p>Traffic Lanes and Stop Lanes should occur in the Hierarchy view.
+If they appear somewhere else in your Hierarchy tree, then move them into the <code>Environment</code> object</p>
+</li>
+</ol>
+<h2 id="complete-loaded-trafficlanes">Complete loaded TrafficLanes</h2>
+<!-- TODO -->
+
+<h2 id="add-a-traffic-intersection">Add a Traffic Intersection</h2>
 <p>Every Traffic Intersection on the scene needs to be added as a Game Object.
+Best practice is to create a parent object <code>TrafficIntersections</code> and add all instances of Traffic Intersection as its children.
 You can do this the same as with <a href="#add-a-random-traffic-simulator-script">Random Traffic Simulator</a>.</p>
 <h3 id="make-sure-that-trafficlights-have-added-scripts">Make sure that TrafficLights have added scripts</h3>
 <!-- TODO add hyperlink -->
 
 <h3 id="add-a-box-collider">Add a box collider</h3>
+<!-- TODO add guidelines -->
 <ol>
 <li>
 <p>Traffic intersection needs to be marked with a box collider.
@@ -1687,7 +1751,8 @@ First click on the <code>Add Component</code> button</p>
 <p><img alt="Search for box collider" src="box_collider_search.png" /></p>
 </li>
 <li>
-<p>Then set the position and orientation and size of the collider box to match the intersection on the scene.</p>
+<p>Then set the position and orientation and size of the collider box to match the intersection on the scene.
+You can do this by manipulating Box Collider properties <code>Center</code> and <code>Size</code> in the Inspector view.</p>
 <p><img alt="Set traffic intersection size" src="traffic_intersection_size.png" /></p>
 </li>
 </ol>
@@ -1695,14 +1760,15 @@ First click on the <code>Add Component</code> button</p>
 <ol>
 <li>
 <p>Click on the <code>Add Component</code> button</p>
-<p><img alt="Add traffic intersection script gif" src="add_traffic_intersection.gif" /></p>
+<p><img alt="Add traffic intersection script gif" src="traffic_intersection_add_script.gif" /></p>
 </li>
 <li>
 <p>In the window that popped up search for <code>Traffic Intersection</code> and select it</p>
 <p><img alt="Search for traffic intersection script" src="traffic_intersection_search.png" /></p>
 </li>
 <li>
-<p>You need to set a proper collider mask in order for the script to work.</p>
+<p>You need to set a proper Collider Mask in order for the script to work.</p>
+<p><img alt="Set collider mask" src="traffic_intersection_collider_mask.png" /></p>
 </li>
 </ol>
 <h4 id="create-traffic-light-groups">Create traffic light groups</h4>
@@ -1716,12 +1782,14 @@ By default you will see 4 Traffic Light Groups, you can add and remove them to s
 <img src="traffic_intersection_add_traffic_light.gif" alt="Traffic intersection add traffic light gif" width="600"/></p>
 </li>
 <li>
-<p>Then add as many Traffic light as you want your group to have and from the drop-down menu select the Traffic lights you want to have</p>
+<p>Then add as many Traffic Lights as you want your group to have.
+From the drop-down menu select the Traffic Lights you want to add.</p>
 <p><!-- <img alt="Traffic intersection add traffic light 2 gif" src="traffic_intersection_add_traffic_light2.gif" /> -->
 <img src="traffic_intersection_add_traffic_light2.gif" alt="Traffic intersection add traffic light 2 gif" width="600"/></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you have a lot of traffic lights you can select them visually from the Scene the same as you had selected Traffic Lanes in the <a href="#add-spawnable-lanes">Random Traffic Simulator</a></p>
+<p>If you have a lot of Traffic Lights it can be challenging to add them from the list.
+You can select them visually from the Scene the same as you had selected Traffic Lanes in the <a href="#add-spawnable-lanes">Random Traffic Simulator</a>.</p>
 </div>
 </li>
 </ol>
@@ -1753,25 +1821,49 @@ This means that if in one Group Lighting Order no command is sent to a Traffic L
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>When applying the change to a Traffic Light all other bulbs in this Traffic Light are turned off.
-It is only necessary to supply the data about what bulbs should be turned on.
-E.g. you don't have to turn off red bulb when turning on the green one for example.</p>
+<p>When applying the change to a Traffic Light</p>
+<ul>
+<li>First all bulbs are turned off</li>
+<li>Only after that changes made in the order are applied</li>
+</ul>
+<p>This means it is only necessary to supply the data about what bulbs should be turned on.
+E.g. you don't have to turn off a red bulb when turning on the green one.</p>
 </div>
 </li>
 </ol>
 </li>
 </ol>
-<!-- ![Interval sec param](lighting_orders_element.png) -->
-<p><img src="lighting_orders_element.png" alt="Interval sec param" width="650"/></p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The first Element in the Lighting Sequences should contain bulb data for every Traffic Light Group, otherwise Traffic Light Groups not specified will not light up at all.</p>
+<p>The first Element in the Lighting Sequences (in most cases) should contain bulb data for every Traffic Light Group.
+Traffic Light Groups not specified in the first Element will not light up at the beginning of the scene.</p>
 </div>
-<h2 id="load-stoplines-and-trafficlanes-from-lanelet">Load StopLines and Trafficlanes from Lanelet</h2>
-<h2 id="complete-loaded-trafficlanes">Complete loaded TrafficLanes</h2>
+<h5 id="example">Example</h5>
+<p>In the Lighting Sequence Element 5 presented below we tell all Traffic Lights in the Vehicle Traffic Light Group 2 to light up their Green Bulb with the color Green and status Solid On which means that they will be turned on all the time.
+We also implicitly tell them to turn all other Bulbs off.</p>
+<p>In the same time we tell all Traffic Lights in the Pedestrian Traffic Light Group 2 to do the very same thing.</p>
+<p>This state will be active for the next 15 seconds, and after that Traffic Intersection will move to the next Element in the Sequence.</p>
+<!-- It should now be clear that Vehicle Traffic Light Group 2 and Pedestrian Traffic Light Group 2 are pointed towards pedestrians and vehicles moving in the same direction. -->
+
+<p><img alt="Example Group Lighting Orders" src="traffic_intersecton_example_sequence_element.png" /></p>
+<p>Lets consider the following Lighting Sequences Element 6.
+Here we order the Traffic Lights in the Pedestrian Traffic Light Group 2 to light up their Green Bulb with the color Green and status Flashing.
+We also implicitly tell them to turn all other bulbs off, which were already off from the implicit change in Element 5, so this effectively does nothing.</p>
+<p>Note that Lighting Sequences Element 6 has no orders for Vehicle Traffic Light Group 2.
+This means that Traffic Light in the Vehicle Traffic Light Group 2 will hold on to their earlier orders.</p>
+<p>This state will be active for 5 seconds, which means that Traffic Lights in the Vehicle Traffic Light Group 2 will be lighting solid green for the total of 20 seconds.</p>
+<p><img alt="Example Group Lighting Order 2" src="traffic_intersecton_example_sequence_element2.png" /></p>
+<!-- ![Interval sec param](lighting_orders_element.png) -->
+<!-- <img src="lighting_orders_element.png" alt="Interval sec param" width="650"/> -->
+
 <h2 id="how-to-test">How to test</h2>
+<!-- TODO -->
+
 <h2 id="add-a-stopline-manually">Add a StopLine manually</h2>
+<!-- TODO -->
+
 <h2 id="add-a-trafficlane-manually">Add a TrafficLane manually</h2>
+<!-- TODO -->
 
 
 
