@@ -12,14 +12,14 @@
         <link rel="prev" href="../SetupUnityProject/">
       
       
-        <link rel="next" href="../../ProjectGuide/">
+        <link rel="next" href="../../../DeveloperGuide/TroubleShooting/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
     
     
       
-        <title>Run AWSIM scene - AWSIM document</title>
+        <title>Run scene - AWSIM document</title>
       
     
     
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#open-the-default-scene" class="md-skip">
+        <a href="#run-the-scene" class="md-skip">
           Skip to content
         </a>
       
@@ -102,7 +102,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Run AWSIM scene
+              Run scene
             
           </span>
         </div>
@@ -488,8 +488,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installation/AWSIMDemo/" class="md-nav__link">
-        AWSIM Demo
+      <a href="../../Installation/RunDemo/" class="md-nav__link">
+        Run demo
       </a>
     </li>
   
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installation/Troubleshooting/" class="md-nav__link">
+      <a href="../../../DeveloperGuide/TroubleShooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -690,47 +690,27 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Run AWSIM scene
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Run AWSIM scene
+        Run scene
       </a>
       
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+            
+          
+            
+              
   
   
   
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#open-the-default-scene" class="md-nav__link">
-    Open the default scene
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-with-autoware" class="md-nav__link">
-    Run with Autoware
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/TroubleShooting/" class="md-nav__link">
+        Troubleshooting
+      </a>
     </li>
   
 
@@ -1249,28 +1229,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#open-the-default-scene" class="md-nav__link">
-    Open the default scene
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#run-with-autoware" class="md-nav__link">
-    Run with Autoware
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1288,22 +1248,29 @@
   
 
 
-  <h1>Run AWSIM scene</h1>
+<!-- TODO DM: tutaj tez dodalbym gif sprawdzajacy topicki -->
 
-<h2 id="open-the-default-scene">Open the default scene</h2>
-<p>The following steps describe how to run the demo in Unity Editor:</p>
+<p>Before following through with this section make sure you setup <em>AWSIM</em> <em>Unity</em> project in accordance with section <a href="../SetupUnityProject/">Setup Unity Project</a>.</p>
+<h1 id="run-the-scene">Run the scene</h1>
+<p>To run the <em>AWSIM</em> scene in <em>Unity</em> with <em>Autoware</em> follow these steps:</p>
 <ol>
-<li>Open the <code>AutowareSimulation.unity</code> scene placed under <code>Assets/AWSIM/Scenes/Main</code> directory
+<li>Open the <code>AutowareSimulation.unity</code> scene placed under <code>Assets/AWSIM/Scenes/Main</code> directory:
 <img alt="" src="open_unity_scene2.gif" /></li>
-<li>Run the simulation by clicking <code>Play</code> button placed at the top section of Editor.
+<li>Run the simulation by clicking <code>Play</code> button placed at the top section of Editor:
 <img alt="" src="unity_play.gif" /></li>
+<li>
+<p>Launch the <em>Autoware</em> (the same way as <a href="../../Installation/RunDemo/#run-with-autoware">with AWSIM Demo</a>) by executing the commands with your own path to the <code>map files</code>:</p>
+<div class="highlight"><pre><span></span><code>source /opt/ros/humble/setup.bash
+source &lt;autoware_workspace_path&gt;/install/setup.bash
+ros2 launch autoware_launch e2e_simulator.launch.xml vehicle_model:=sample_vehicle sensor_model:=awsim_sensor_kit map_path:=&lt;mapfiles_dir_path&gt;
+</code></pre></div>
+</li>
 </ol>
-<h2 id="run-with-autoware">Run with Autoware</h2>
-<p>The following steps describe how to run the AWSIM with Autoware</p>
-<ol>
-<li>Open and play the default scene as described <a href="#open-the-default-scene">above</a></li>
-<li>Launch Autoware the same way as <a href="../../Installation/AWSIMDemo/#run-with-autoware">with AWSIM Demo</a></li>
-</ol>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>The <em>Autoware</em> that has been started and communicating properly with <em>AWSIM</em> should look like this:</p>
+<p><img alt="autoware" src="autoware.png" /></p>
+</div>
 
 
 
@@ -1343,13 +1310,13 @@
         
         
           
-          <a href="../../ProjectGuide/" class="md-footer__link md-footer__link--next" aria-label="Next: Project guide" rel="next">
+          <a href="../../../DeveloperGuide/TroubleShooting/" class="md-footer__link md-footer__link--next" aria-label="Next: Troubleshooting" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Project guide
+                Troubleshooting
               </div>
             </div>
             <div class="md-footer__button md-icon">

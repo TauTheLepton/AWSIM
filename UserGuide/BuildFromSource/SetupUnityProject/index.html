@@ -12,7 +12,7 @@
         <link rel="prev" href="../UnityInstallation/">
       
       
-        <link rel="next" href="../RunAWSIMScene/">
+        <link rel="next" href="../RunScene/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.2, mkdocs-material-9.1.6">
@@ -67,7 +67,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#system-setup" class="md-skip">
+        <a href="#prerequisites" class="md-skip">
           Skip to content
         </a>
       
@@ -488,8 +488,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installation/AWSIMDemo/" class="md-nav__link">
-        AWSIM Demo
+      <a href="../../Installation/RunDemo/" class="md-nav__link">
+        Run demo
       </a>
     </li>
   
@@ -502,7 +502,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Installation/Troubleshooting/" class="md-nav__link">
+      <a href="../../../DeveloperGuide/TroubleShooting/" class="md-nav__link">
         Troubleshooting
       </a>
     </li>
@@ -676,53 +676,12 @@
       <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
       
       
+        
       
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Setup Unity Project
-          <span class="md-nav__icon md-icon"></span>
-        </label>
       
       <a href="./" class="md-nav__link md-nav__link--active">
         Setup Unity Project
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#system-setup" class="md-nav__link">
-    System setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#open-awsim-project" class="md-nav__link">
-    Open AWSIM project
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#import-external-packages" class="md-nav__link">
-    Import external packages
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
       
     </li>
   
@@ -735,8 +694,22 @@
   
   
     <li class="md-nav__item">
-      <a href="../RunAWSIMScene/" class="md-nav__link">
-        Run AWSIM scene
+      <a href="../RunScene/" class="md-nav__link">
+        Run scene
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../DeveloperGuide/TroubleShooting/" class="md-nav__link">
+        Troubleshooting
       </a>
     </li>
   
@@ -1256,35 +1229,8 @@
   
   
   
+    
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#system-setup" class="md-nav__link">
-    System setup
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#open-awsim-project" class="md-nav__link">
-    Open AWSIM project
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#import-external-packages" class="md-nav__link">
-    Import external packages
-  </a>
-  
-</li>
-      
-    </ul>
   
 </nav>
                   </div>
@@ -1302,96 +1248,66 @@
   
 
 
-  <h1>Setup Unity Project</h1>
-
 <!-- TODO update link, but idk what should it point to, because what was once one page now is like 2 sections full of pages -->
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>It is advised to checkout the <a href="../QuickStartDemo">Quick Start Demo</a> tutorial before reading this section.</p>
+
+<h1 id="prerequisites">Prerequisites</h1>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is advised to checkout the <a href="../../Installation/RunDemo">Run Demo</a> tutorial before reading this section.</p>
 </div>
-<p>This page is a tutorial for setting up a AWSIM Unity project.</p>
-<h2 id="system-setup">System setup</h2>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Ubuntu 22</label><label for="__tabbed_1_2">Windows</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<ol>
-<li>Make sure your machine meets the <a href="../../Installation/Prerequisites/#pc-specs">required hardware specifications</a>.<ul>
-<li><em>NOTE: PC requirements may vary depending on simulation contents which may change as the simulator develops</em></li>
-</ul>
-</li>
-<li>Prepare a desktop PC with Ubuntu 22.04 installed.</li>
-<li>Install <a href="../../Installation/Prerequisites/#linux">Nvidia drivers and Vulkan Graphics API</a>.</li>
-<li>Install <a href="https://git-scm.com/">git</a>.</li>
-</ol>
-</div>
-<div class="tabbed-block">
-<ol>
-<li>Make sure your machine meets the <a href="../../Installation/Prerequisites/#pc-specs">required hardware specifications</a>.<ul>
-<li><em>NOTE: PC requirements may vary depending on simulation contents which may change as the simulator develops</em></li>
-</ul>
-</li>
-<li>Prepare a desktop PC with Windows 10 or 11 (64 bit) installed.</li>
-<li>Install <a href="https://git-scm.com/">git</a>.</li>
-</ol>
-</div>
-</div>
-</div>
-<h2 id="open-awsim-project">Open AWSIM project</h2>
-<p>To open the Unity AWSIM project in Unity Editor:</p>
+<p>Before following through with this section make sure to check <a href="../Prerequisites/">prerequisites</a> and install <em>Unity</em> in accordance with section <a href="../UnityInstallation/">Unity installation</a>.</p>
+<h1 id="setup-awsim-unity-project">Setup AWSIM Unity project</h1>
+<p>To setup the <em>AWSIM</em> project in <em>Unity</em> <em>Editor</em>:</p>
 <ol>
 <li>
-<p>Make sure you have the AWSIM repository cloned
+<p>Clone the <em>AWSIM</em> repository by executing the following command in the terminal:
     <div class="highlight"><pre><span></span><code>git clone git@github.com:tier4/AWSIM.git
 </code></pre></div></p>
 </li>
 <li>
-<p>Launch UnityHub.</p>
+<p>Download <code>Japan_Tokyo_Nishishinjuku.unitypackage</code>
+    <a class="md-button md-button--primary" href="https://github.com/tier4/AWSIM/releases/download/v1.1.0/Japan_Tokyo_Nishishinjuku.unitypackage">Download Map files (unitypackage)</a></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>The Externals directory is added to the <code>.gitignore</code> because the map has a large file size and should not be directly uploaded to the repository.</p>
+</div>
 </li>
 <li>
-<p>Open the project in UnityHub</p>
+<p>Launch <em>UnityHub</em>.</p>
+</li>
+<li>
+<p>Open the project in <em>UnityHub</em></p>
 <ul>
 <li>
-<p>Click the <code>Open</code> button in Unity Hub
+<p>Click the <code>Open</code> button in Unity Hub:
 <img alt="" src="open_unity_project1.gif" /></p>
 </li>
 <li>
-<p>Navigate the directory where the AWSIM repository was cloned to, select it and click <code>Open</code> in file explorer
+<p>Navigate the directory where the AWSIM repository was cloned to, select it and click <code>Open</code> in file explorer:
 <img alt="" src="open_unity_project2.gif" /></p>
 </li>
 <li>
-<p>The project should open automatically, if it doesn't it still should be added to <code>Projects</code> tab in Unity Hub. To launch the project in Unity Editor simply click the <code>AWSIM</code> item
+<p>The project should open automatically, if it doesn't it still should be added to <code>Projects</code> tab in Unity Hub. To launch the project in Unity Editor simply click the <code>AWSIM</code> item:
 <img alt="" src="launch_unity_project.gif" /></p>
 </li>
-<li>
-<p>The project is now ready to use
-<img alt="" src="opened_project.png" /></p>
-</li>
 </ul>
-</li>
-</ol>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>If you get the safe mode dialog when starting UnityEditor, you may need to install openssl.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you get the safe mode dialog when starting <em>UnityEditor</em>, you may need to install openssl.</p>
 <ol>
-<li>download libssl<br />
+<li>Download <em>libssl</em>:
 <code>$ wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl1.0/libssl1.0.0_1.0.2n-1ubuntu5.11_amd64.deb</code></li>
-<li>install<br />
+<li>Install it:<br />
 <code>sudo dpkg -i libssl1.0.0_1.0.2n-1ubuntu5.11_amd64.deb</code></li>
 </ol>
 </div>
-<h2 id="import-external-packages">Import external packages</h2>
-<p>To properly run and use AWSIM project in Unity it is required to download map package which is not included in the repository.</p>
-<ol>
-<li>
-<p>Download <code>Japan_Tokyo_Nishishinjuku.unitypackage</code></p>
-<p><a class="md-button md-button--primary" href="https://github.com/tier4/AWSIM/releases/download/v1.1.0/Japan_Tokyo_Nishishinjuku.unitypackage">Download Map files (unitypackage)</a></p>
 </li>
 <li>
-<p>In Unity Editor, from the menu bar at the top, select <code>Assets -&gt; Import Package -&gt; Custom Package...</code>
+<p>In the open project, from the menu bar at the top, select <code>Assets -&gt; Import Package -&gt; Custom Package...</code>
 <img alt="" src="import_unity_package1.gif" /></p>
 </li>
 <li>
-<p>Navigate the <code>Japan_Tokyo_Nishishinjuku.unitypackage</code> file and open it
+<p>Navigate the to downloaded <code>Japan_Tokyo_Nishishinjuku.unitypackage</code> file and open it
 <img alt="" src="import_unity_package2.gif" /></p>
 </li>
 <li>
@@ -1403,9 +1319,9 @@
 <img alt="" src="externals_dir.png" /></p>
 </li>
 </ol>
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>The Externals directory is added to the <code>.gitignore</code> because the map has a large file size and should not be directly uploaded to the repository.</p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>The project is now ready to use. Now you can proceed to the next step <a href="../RunScene/">Run Scene</a>.</p>
 </div>
 
 
@@ -1446,13 +1362,13 @@
         
         
           
-          <a href="../RunAWSIMScene/" class="md-footer__link md-footer__link--next" aria-label="Next: Run AWSIM scene" rel="next">
+          <a href="../RunScene/" class="md-footer__link md-footer__link--next" aria-label="Next: Run scene" rel="next">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Run AWSIM scene
+                Run scene
               </div>
             </div>
             <div class="md-footer__button md-icon">
